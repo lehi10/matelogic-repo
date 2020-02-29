@@ -40,5 +40,8 @@ Route::group(['middleware'=>['web','auth']],function(){
     Route::get('/profesor', 'ProfesorController@show');
 
 
+    Route::post('/saveForm', 'EstudianteController@saveForm');
+
+
 });
 
