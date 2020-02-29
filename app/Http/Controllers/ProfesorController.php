@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use  App\Student;
 use Auth;
+use Charts;
+use Illuminate\Http\Request;
 
 
 class ProfesorController extends Controller
@@ -18,11 +20,11 @@ class ProfesorController extends Controller
     
     public function show()
     {
-
+        
         if(Auth::user()->role != 1)
             abort(403,"Usuario no autorizado.");
-
-
+        
+        $datos = Student::where('teacher_id',Auth::user()->id)->get();
 
 
         
