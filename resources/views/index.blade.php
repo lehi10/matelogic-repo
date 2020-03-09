@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Yachay Exploradores</title>
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v6.0&appId=1644018785743808&autoLogAppEvents=1"></script>  
   <header>
     <!--<h1>Yachay Exploradores</h1>-->
-    <h1 class="img-logo"><img src="images/logo.png" alt="icon" class="icon regular" /></h1>
+    <h1 class="img-logo"><img src="/images/logo.png" alt="icon" class="icon regular" /></h1>
     <h2>Plataforma para el fortalecimiento de identidad cultural</h2>
   </div>
     <nav>
@@ -33,7 +33,7 @@
         <li class="item">
             <a href=" #">
                 <div class="img-wrapper">
-                    <img src="images/inicio.svg" alt="icon" class="icon regular" />
+                    <img src="/images/inicio.svg" alt="icon" class="icon regular" />
                 </div>
                 <div class="text-wrapper">
                     <div class="column1">
