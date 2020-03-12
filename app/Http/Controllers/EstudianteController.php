@@ -23,6 +23,18 @@ class EstudianteController extends Controller
         return view('estudiante.index',['datos_estudiante'=>$datos]);
     }
 
+    public function form_demog_show(Request $request){
+        if(Auth::user()->role != 0)
+        abort(403,"Usuario no autorizado.");
+        
+
+        return view('demoform.index');
+    }
+    
+    public function form_demog_save(Request $request){
+
+    }
+
     public function saveForm(Request $request)
     {
         if(Auth::user()->role != 0)
