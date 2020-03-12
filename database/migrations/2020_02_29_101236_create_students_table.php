@@ -18,6 +18,9 @@ class CreateStudentsTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('teacher_id');
+
+
+
             
             $table->tinyInteger('q1')->default(0);
             $table->tinyInteger('q2')->default(0);
