@@ -324,7 +324,7 @@ Plotly.newPlot('grafico_0', data, layout);
 <script>
 var data = [
   {
-    x: ['Función Locativa', 'Función Selectiva', 'Función Integrativa'],
+    x: ['Función Selectiva', 'Función Locativa', 'Función Integrativa'],
     y: [
         {{ $totalRows > 0 ?round(($oneIntents[0]*100)/($totalRows*6),2): 0 }}, 
         {{ $totalRows > 0 ?round(($oneIntents[1]*100)/($totalRows*5),2): 0 }},
@@ -365,7 +365,7 @@ var trace1 = {
       {{ $metricsObjSelected[6] }},
       {{ $metricsObjSelected[9] }}
    ],
-  name: 'Locativa',
+  name: 'Dimensión de Valoración',
   type: 'bar'
 };
 
@@ -376,7 +376,7 @@ var trace2 = {
       {{ $metricsObjSelected[7] }},
       {{ $metricsObjSelected[10] }}
    ],
-  name: 'Selectiva',
+  name: 'Dimensión de Interes',
   type: 'bar'
 };
 
@@ -387,7 +387,7 @@ var trace3 = {
       {{ $metricsObjSelected[8] }},
       {{ $metricsObjSelected[11] }}
    ],
-  name: 'Integrativa',
+  name: 'Dimensión de percepciones',
   type: 'bar'
 };
 

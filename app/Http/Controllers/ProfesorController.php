@@ -67,45 +67,45 @@ class ProfesorController extends Controller
             $row->fl4 === 1 ? $locations0intents ++ : ( $row->fl4 > 1 ? $locationsMoreintents++: null) ;
             $row->fl5 === 1 ? $locations0intents ++ : ( $row->fl5 > 1 ? $locationsMoreintents++: null) ;
 
-            $row->fi1 === 1 ? $locations0intents ++ : ( $row->fi1 > 1 ? $integrativeMoreintents++: null) ;
-            $row->fi2 === 1 ? $locations0intents ++ : ( $row->fi2 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi3 === 1 ? $locations0intents ++ : ( $row->fi3 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi4 === 1 ? $locations0intents ++ : ( $row->fi4 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi5 === 1 ? $locations0intents ++ : ( $row->fi5 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi6 === 1 ? $locations0intents ++ : ( $row->fi6 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi7 === 1 ? $locations0intents ++ : ( $row->fi7 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi8 === 1 ? $locations0intents ++ : ( $row->fi8 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi9 === 1 ? $locations0intents ++ : ( $row->fi9 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi10 === 1 ? $locations0intents ++ : ( $row->fi10 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi1 === 1 ? $integrative0intents ++ : ( $row->fi1 > 1 ? $integrativeMoreintents++: null) ;
+            $row->fi2 === 1 ? $integrative0intents ++ : ( $row->fi2 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi3 === 1 ? $integrative0intents ++ : ( $row->fi3 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi4 === 1 ? $integrative0intents ++ : ( $row->fi4 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi5 === 1 ? $integrative0intents ++ : ( $row->fi5 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi6 === 1 ? $integrative0intents ++ : ( $row->fi6 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi7 === 1 ? $integrative0intents ++ : ( $row->fi7 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi8 === 1 ? $integrative0intents ++ : ( $row->fi8 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi9 === 1 ? $integrative0intents ++ : ( $row->fi9 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi10 === 1 ? $integrative0intents ++ : ( $row->fi10 > 1 ? $integrativeMoreintents++: null)  ;
 
-            $row->fi11 === 1 ? $locations0intents ++ : ( $row->fi11 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi12 === 1 ? $locations0intents ++ : ( $row->fi12 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi13 === 1 ? $locations0intents ++ : ( $row->fi13 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi14 === 1 ? $locations0intents ++ : ( $row->fi14 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi15 === 1 ? $locations0intents ++ : ( $row->fi15 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi16 === 1 ? $locations0intents ++ : ( $row->fi16 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi17 === 1 ? $locations0intents ++ : ( $row->fi17 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi18 === 1 ? $locations0intents ++ : ( $row->fi18 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi19 === 1 ? $locations0intents ++ : ( $row->fi19 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi20 === 1 ? $locations0intents ++ : ( $row->fi20 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi11 === 1 ? $integrative0intents ++ : ( $row->fi11 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi12 === 1 ? $integrative0intents ++ : ( $row->fi12 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi13 === 1 ? $integrative0intents ++ : ( $row->fi13 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi14 === 1 ? $integrative0intents ++ : ( $row->fi14 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi15 === 1 ? $integrative0intents ++ : ( $row->fi15 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi16 === 1 ? $integrative0intents ++ : ( $row->fi16 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi17 === 1 ? $integrative0intents ++ : ( $row->fi17 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi18 === 1 ? $integrative0intents ++ : ( $row->fi18 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi19 === 1 ? $integrative0intents ++ : ( $row->fi19 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi20 === 1 ? $integrative0intents ++ : ( $row->fi20 > 1 ? $integrativeMoreintents++: null)  ;
 
-            $row->fi21 === 1 ? $locations0intents ++ : ( $row->fi21 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi22 === 1 ? $locations0intents ++ : ( $row->fi22 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi23 === 1 ? $locations0intents ++ : ( $row->fi23 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi24 === 1 ? $locations0intents ++ : ( $row->fi24 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi25 === 1 ? $locations0intents ++ : ( $row->fi25 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi26 === 1 ? $locations0intents ++ : ( $row->fi26 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi27 === 1 ? $locations0intents ++ : ( $row->fi27 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi28 === 1 ? $locations0intents ++ : ( $row->fi28 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi29 === 1 ? $locations0intents ++ : ( $row->fi29 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi30 === 1 ? $locations0intents ++ : ( $row->fi30 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi21 === 1 ? $integrative0intents ++ : ( $row->fi21 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi22 === 1 ? $integrative0intents ++ : ( $row->fi22 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi23 === 1 ? $integrative0intents ++ : ( $row->fi23 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi24 === 1 ? $integrative0intents ++ : ( $row->fi24 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi25 === 1 ? $integrative0intents ++ : ( $row->fi25 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi26 === 1 ? $integrative0intents ++ : ( $row->fi26 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi27 === 1 ? $integrative0intents ++ : ( $row->fi27 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi28 === 1 ? $integrative0intents ++ : ( $row->fi28 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi29 === 1 ? $integrative0intents ++ : ( $row->fi29 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi30 === 1 ? $integrative0intents ++ : ( $row->fi30 > 1 ? $integrativeMoreintents++: null)  ;
 
-            $row->fi31 === 1 ? $locations0intents ++ : ( $row->fi31 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi32 === 1 ? $locations0intents ++ : ( $row->fi32 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi33 === 1 ? $locations0intents ++ : ( $row->fi33 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi34 === 1 ? $locations0intents ++ : ( $row->fi34 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi35 === 1 ? $locations0intents ++ : ( $row->fi35 > 1 ? $integrativeMoreintents++: null)  ;
-            $row->fi36 === 1 ? $locations0intents ++ : ( $row->fi36 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi31 === 1 ? $integrative0intents ++ : ( $row->fi31 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi32 === 1 ? $integrative0intents ++ : ( $row->fi32 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi33 === 1 ? $integrative0intents ++ : ( $row->fi33 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi34 === 1 ? $integrative0intents ++ : ( $row->fi34 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi35 === 1 ? $integrative0intents ++ : ( $row->fi35 > 1 ? $integrativeMoreintents++: null)  ;
+            $row->fi36 === 1 ? $integrative0intents ++ : ( $row->fi36 > 1 ? $integrativeMoreintents++: null)  ;
                
         }
 
@@ -163,7 +163,7 @@ class ProfesorController extends Controller
         }
 
         $metricsObjSelected = [$f1,$f2,$f3,$p1,$p2,$p3,$h1,$h2,$h3,$m1,$m2,$m3];
-        $scoreAcc = [$fundoFierro, $plazaArmas, $hospital, $molino=0];
+        $scoreAcc = [$fundoFierro, $plazaArmas, $hospital, $molino];
 
         
         return view('profesor.index',[
