@@ -44,7 +44,8 @@ class EstudianteController extends Controller
         if(Auth::user()->role != 0)
             abort(403,"Usuario no autorizado.");
 
-        
+        $preguntas = [0,0,0];
+
         $student = Student::where("user_id",Auth::user()->id)->get()[0];
         
         $student->q1 =$request->q1;
@@ -62,6 +63,28 @@ class EstudianteController extends Controller
         $student->q13=$request->q13;
         $student->q14=$request->q14;
         $student->q15=$request->q15;
+
+
+        $preguntas[$request->q1] +=1;
+        $preguntas[$request->q2] +=1;
+        $preguntas[$request->q3] +=1;
+        $preguntas[$request->q4] +=1;
+        $preguntas[$request->q5] +=1;
+        $preguntas[$request->q6] +=1;
+        $preguntas[$request->q7] +=1;
+        $preguntas[$request->q8] +=1;
+        $preguntas[$request->q9] +=1;
+        $preguntas[$request->q10] +=1;
+        $preguntas[$request->q11] +=1;
+        $preguntas[$request->q12] +=1;
+        $preguntas[$request->q13] +=1;
+        $preguntas[$request->q14] +=1;
+        $preguntas[$request->q15] +=1;
+
+        $student->nunca=$preguntas[0];
+        $student->siempre=$preguntas[1];
+        $student->aveces=$preguntas[2];
+
 
         $student->save();
         

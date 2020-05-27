@@ -17,11 +17,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('teacher_id');
-
-
-
-            
+            $table->unsignedBigInteger('teacher_id');            
             $table->tinyInteger('q1')->default(0);
             $table->tinyInteger('q2')->default(0);
             $table->tinyInteger('q3')->default(0);
@@ -37,11 +33,13 @@ class CreateStudentsTable extends Migration
             $table->tinyInteger('q13')->default(0);
             $table->tinyInteger('q14')->default(0);
             $table->tinyInteger('q15')->default(0);
+            $table->tinyInteger('nunca')->default(0);
+            $table->tinyInteger('aveces')->default(0);
+            $table->tinyInteger('siempre')->default(0);
             $table->timestamps();
 
             $table->foreign('teacher_id')->references('id')->on('users');
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 

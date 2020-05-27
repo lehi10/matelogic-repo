@@ -21,6 +21,89 @@
           <div class="row">
             <div class="col-sm-12">
 
+            <h3>Métrica sobre Identidad Cultural Arequipeña</h3>
+                <div class="col-sm-12">
+
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                        <th></th>
+                        <th>Frecuencia</th>
+                        <th>Procentaje</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Nunca</td>
+                        <td>{{$counters[0]}}</td>
+                        @if ($counters[0] + $counters[1]+$counters[2] != 0)
+                        <td>{{ round((100*$counters[0])/($counters[0]+$counters[1]+$counters[2]),2)}}</td>
+                        @else
+                            <td>0</td>
+                        @endif
+                    </tr>
+                    <tr>
+                        <td>Aveces</td>
+                        <td>{{$counters[1]}}</td>
+                        @if ($counters[0] + $counters[1]+$counters[2] != 0)
+                        <td>{{ round((100*$counters[1])/($counters[0]+$counters[1]+$counters[2]),2)}}</td>
+                        @else
+                            <td>0</td>
+                        @endif
+                    </tr>
+                    <tr>
+                        <td>Siempre</td>
+                        <td>{{$counters[2]}}</td>
+                        @if ($counters[0] + $counters[1]+$counters[2] != 0)
+                        <td>{{ round((100*$counters[2])/($counters[0]+$counters[1]+$counters[2]),2)}}</td>
+                        @else
+                            <td>0</td>
+                        @endif
+                    </tr>
+                  </tbody>
+                </table>
+                <div id='grafico_0'></div>
+
+
+                <hr>
+                <h3>Función de Identidad</h3>
+                <div class="col-sm-12">
+
+                <table class="table table-condensed">
+                  <thead>
+                  <tr>
+                      <th>Funciones</th>
+                      <th>N° de Preguntas</th>
+                      <th>Total de Aciertos</th>
+                      <th>Porcentaje</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>Función Locativa </td>
+                      <td>6</td>
+                      <td>{{ $oneIntents[0] }}</td>
+                      <td>{{ $totalRows > 0 ?round(($oneIntents[0]*100)/($totalRows*6),2): 0 }} %</td>
+                  </tr>
+                  <tr>
+                      <td>Función Selectiva </td>
+                      <td>5</td>
+                      <td>{{ $oneIntents[1] }}</td>
+                      <td>{{ $totalRows > 0? round(($oneIntents[1]*100)/($totalRows*5),2): 0 }} %</td>
+                  </tr>
+                  <tr>
+                      <td>Función Integrativa </td>
+                      <td>36</td>
+                      <td>{{ $oneIntents[2] }}</td>
+                      <td>{{ $totalRows > 0 ?round(($oneIntents[2]*100)/($totalRows*36),2): 0 }} %</td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              
+                <div id='grafico_0.1'></div>
+
+                <hr>
                 <h3>Gráfico de desempeño</h3>
                 <div class="col-sm-12">
 
@@ -35,13 +118,13 @@
                   <tbody>
                   <tr>
                       <td>Correctas</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ $oneIntents[0]+$oneIntents[1]+$oneIntents[2] }}</td>
+                      <td>{{ $totalRows > 0 ? round( ($oneIntents[0]+$oneIntents[1]+$oneIntents[2])*100/($totalRows*(6+5+36)),2): 0 }} % </td>
                   </tr>
                   <tr>
                       <td>Incorrectas</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ $moreIntents[0]+$moreIntents[1]+$moreIntents[2] }}</td>
+                      <td>{{ $totalRows > 0 ? round( ($moreIntents[0]+$moreIntents[1]+$moreIntents[2])*100/($totalRows*(6+5+36)),2): 0 }} % </td>
                   </tr>
 
                   </tbody>
@@ -65,19 +148,19 @@
                   <tbody>
                   <tr>
                       <td>Fundo del Fierro</td>
-                      <td></td>
+                      <td>{{ $scoreAcc[0] }}</td>
                   </tr>
                   <tr>
                       <td>Plaza de Armas</td>
-                      <td></td>
+                      <td>{{ $scoreAcc[1] }}</td>
                   </tr>
                   <tr>
                       <td>Hospital Goyeneche</td>
-                      <td></td>
+                      <td>{{ $scoreAcc[2] }}</td>
                   </tr>
                   <tr>
                       <td>Molino de Sabandía</td>
-                      <td></td>
+                      <td>{{ $scoreAcc[3] }}</td>
                   </tr>
 
                   </tbody>
@@ -221,11 +304,47 @@
 @section('afterbody')
 
 
+
+<script>
+var data = [{
+  values: [{{$counters[0]}}, {{$counters[1]}},{{$counters[2]}}],
+  labels: ['Nunca', 'Aveces', 'Siempre'],
+  type: 'pie'
+}];
+
+var layout = {
+  height: 400,
+  width: 900
+};
+
+Plotly.newPlot('grafico_0', data, layout);
+</script>
+
+
+<script>
+var data = [
+  {
+    x: ['Función Locativa', 'Función Selectiva', 'Función Integrativa'],
+    y: [
+        {{ $totalRows > 0 ?round(($oneIntents[0]*100)/($totalRows*6),2): 0 }}, 
+        {{ $totalRows > 0 ?round(($oneIntents[1]*100)/($totalRows*5),2): 0 }},
+        {{ $totalRows > 0 ?round(($oneIntents[2]*100)/($totalRows*36),2): 0 }}],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('grafico_0.1', data);
+
+
+</script>
+
+
+
 <script>
 var data = [
   {
     x: ['Correctas', 'Incorrectas'],
-    y: [20, 14],
+    y: [{{ $oneIntents[0]+$oneIntents[1]+$oneIntents[2] }}, {{ $moreIntents[0]+$moreIntents[1]+$moreIntents[2] }}],
     type: 'bar'
   }
 ];
@@ -236,24 +355,38 @@ Plotly.newPlot('grafico_1', data);
 </script>
 
 
+
+
 <script>
 var trace1 = {
-  x: ['Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia','Fundo del Fierro'],
-  y: [20, 14, 23,36],
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [{{ $metricsObjSelected[0] }},
+      {{ $metricsObjSelected[3] }},
+      {{ $metricsObjSelected[6] }},
+      {{ $metricsObjSelected[9] }}
+   ],
   name: 'Locativa',
   type: 'bar'
 };
 
 var trace2 = {
-  x: ['Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia','Fundo del Fierro'],
-  y: [12, 18, 29,24],
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [{{ $metricsObjSelected[1] }},
+      {{ $metricsObjSelected[4] }},
+      {{ $metricsObjSelected[7] }},
+      {{ $metricsObjSelected[10] }}
+   ],
   name: 'Selectiva',
   type: 'bar'
 };
 
 var trace3 = {
-  x: ['Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia','Fundo del Fierro'],
-  y: [20, 14, 23,12],
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [{{ $metricsObjSelected[2] }},
+      {{ $metricsObjSelected[5] }},
+      {{ $metricsObjSelected[8] }},
+      {{ $metricsObjSelected[11] }}
+   ],
   name: 'Integrativa',
   type: 'bar'
 };
