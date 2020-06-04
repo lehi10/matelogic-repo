@@ -23,6 +23,9 @@ Route::get('/',function(){
 });
 
 
+Route::get('/endpoint', 'EnpointController@questions');
+Route::get('/endpoint/login', 'EndpointController@login');
+
 Route::group(['middleware'=>['web','auth']],function(){
 
     Route::get('/home',function(){
@@ -45,7 +48,5 @@ Route::group(['middleware'=>['web','auth']],function(){
     Route::get('/profesor', 'ProfesorController@show');
 
     Route::post('/saveForm', 'EstudianteController@saveForm');
-
-
 });
 
