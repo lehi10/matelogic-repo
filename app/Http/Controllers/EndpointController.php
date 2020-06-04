@@ -21,7 +21,6 @@ class EndpointController extends Controller
         if (Auth::attempt(['username' => $username, 'password' => $password]))
         {
             $datos = User::where('username',$username)->get()[0];
-            error_log($datos["name"]);
             $id =  $datos["id"];
             $name= $datos["name"];
             $email= $datos["email"];
@@ -29,19 +28,23 @@ class EndpointController extends Controller
 
         }
         else{
-            error_log("nel");
             return response()->json(['code'=> 400,'message'=>'Not Found']);
         }
 
-        return response()
-        ->json(['name' => 'Abigail', 'state' => 'CA']);
+        return response()->json(['code'=> 500,'message'=>'Error']);
     }
 
     public function questions(Request $request)
     {
-
-        
-        return response()
-        ->json(['name' => 'Abigail', 'state' => 'CA']);
+        $idP=$request['idP'];
+        $idq=$request['idQ'];
+        $counter=$request['Counter'];
+        if($idP && $idq && $counter){
+            return response()->json(['code'=> 200,'message'=>'Si se guardo correctamente']);
+        }
+        else{
+            return response()->json(['code'=> 400,'message'=>'Not Found']);
+        }
+            
     }
 }
