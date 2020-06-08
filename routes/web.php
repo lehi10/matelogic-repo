@@ -23,8 +23,10 @@ Route::get('/',function(){
 });
 
 
-Route::get('/endpoint', 'EnpointController@questions');
-Route::get('/endpoint/login', 'EndpointController@login');
+Route::post('/endpoint', 'EndpointController@questions');
+Route::post('/endpoint/login/', 'EndpointController@login');
+
+
 
 Route::group(['middleware'=>['web','auth']],function(){
 
