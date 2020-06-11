@@ -67,7 +67,7 @@ class EndpointController extends Controller
             {
                 $question =$questionObj[0];
                 $stringQ = $this->findIdQuestion($idQ);
-                $question[$stringQ-1] = $counter;
+                $question[$stringQ] = $counter;
                 $question->save();
                 return response()->json(['code'=> 200,'message'=>'Si se guardo correctamente']);
             }
