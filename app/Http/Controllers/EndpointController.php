@@ -60,7 +60,6 @@ class EndpointController extends Controller
         $idQ=$request['idQ'];
         $counter=$request['Counter'];
 
-        
         if($idP && $idQ && $counter){
             $questionObj = IndentityQuestions::where('user_id', $idP)->get();
             
@@ -68,7 +67,7 @@ class EndpointController extends Controller
             {
                 $question =$questionObj[0];
                 $stringQ = $this->findIdQuestion($idQ);
-                $question[$stringQ] = $counter;
+                $question[$stringQ-1] = $counter;
                 $question->save();
                 return response()->json(['code'=> 200,'message'=>'Si se guardo correctamente']);
             }
