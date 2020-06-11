@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Student;
+use App\Stage;
+use App\IndentityQuestions;
 use App\Teacher;
+use App\Interest;
+use App\Valoration;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -95,8 +99,27 @@ class RegisterController extends Controller
                 $student->user_id    = $id_user[0]['id'];
                 $student->teacher_id = $data['code'];
                 $student->save();
-            
+                
+                $questions = new IndentityQuestions;
+                $questions->user_id    = $id_user[0]['id'];
+                $questions->teacher_id = $data['code'];
+                $questions->save();
 
+                $interest = new Interest;
+                $interest->user_id    = $id_user[0]['id'];
+                $interest->teacher_id = $data['code'];
+                $interest->save();
+
+                $valoration = new Valoration;
+                $valoration->user_id    = $id_user[0]['id'];
+                $valoration->teacher_id = $data['code'];
+                $valoration->save();
+
+
+                $valoration = new Stage;
+                $valoration->user_id    = $id_user[0]['id'];
+                $valoration->teacher_id = $data['code'];
+                $valoration->save();
         }
         //Si es un maestro
         else{
