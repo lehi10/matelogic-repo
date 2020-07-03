@@ -22,6 +22,13 @@ Route::get('/',function(){
     return view('index');
 });
 
+Route::get('/newIndex',function(){ return view('newViews/index');});
+Route::get('/newRegister',function(){ return view('newViews/register');});
+Route::get('/newAlumno',function(){ return view('newViews/alumno');});
+Route::get('/newDocente',function(){ return view('newViews/docente');});
+
+
+
 
 Route::post('/endpoint', 'EndpointController@questions');
 Route::post('/endpoint/login/', 'EndpointController@login');
