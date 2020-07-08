@@ -41,9 +41,113 @@
         </div>
         <div class="col-sm-5 " ></div>
         
+      </div>      
+    </div>  
+    <div class="container-fluid">
+      <div class="row" style="text-align:center;margin-top: 50px; ">
+        <div class="col-md-3" >
+          <div>
+            <div class="dropdown">
+              
+              <button class="btn btn-danger dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                ENCUESTAS
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 100px">
+            <div class="dropdown dropup">
+              
+              <button class="btn btn-primary dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                ESTADISTICAS <br> ESTUDIANTES
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" style="text-align:center;">
+          <img src="../images/logo2.png"/>
+        </div>
+        
+        <div class="col-md-3">
+          <div>
+            <div class="dropdown">
+              <button class="btn btn-danger dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                DOCENTE              
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 100px">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                NIVEL DE SATISFACION <br> DE LOS ESTUDIANTES
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>    
-  </body>
+      <div class="row" style="text-align:center; margin-top: 100px">
+        <div class="col-md-3">
+          <div class="dropdown">
+            
+            <button class="btn btn-warning dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              COMPETENCIAS
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="dropdown">
+            
+            <button class="btn btn-warning dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              CAPACIDADES
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="dropdown">
+            
+            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              DESEMPEÑOS
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+        <div class="row socialNetworks">
+            <p>Encuéntranos en: </p>
+            <div class="col-sm-4">
+              <i class='fab fa-google-play' style='font-size:36px'></i>
+            </div>
+            <div class="col-sm-4">
+              <i class='fab fa-facebook-square' style='font-size:36px'></i>
+            </div>
+            <div class="col-sm-4">
+              <i class='fab fa-youtube' style='font-size:36px'></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <style>
     .title{
@@ -62,9 +166,16 @@
       overflow: hidden;
       outline:none;
     }
-        
+
+    .customButton{
+      height: 20px;
+    }
+
+    .socialNetworks{
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
   </style>
-
-
 </html> 
 
