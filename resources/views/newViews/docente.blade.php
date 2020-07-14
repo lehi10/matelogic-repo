@@ -1,181 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Registro</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-  </head>
-  <body class="body">
-    <div class="container-fluid ">
-      <div class="row">
-        <div>
-          <div class="col-sm-3"> </div>
-          <div class="col-sm-6 title"> 
-            <h2>Yachay Exploradores<h2>
-          </div>
-          <div class="col-sm-1 " ></div>
-          <div class="col-sm-2 " >
-            <div class="dropdown">
-            <button class="buttonTransparent" style='font-size:50px' data-toggle="dropdown"  id="menu1"> <i class='far fa-user-circle' ></i></button>
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li role="presentation" class="dropdown-header">Usuario</li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar de Clave</a></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cerrar Sesión</a></li>
-              </ul>
-            </div>
-          </div>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  
+  .shadow {
+  text-shadow: 2px 2px #525B61;
+  }
+  .shadow2 {
+    text-shadow: 1px 1px #83919B;
+  }
+
+   /* Aesthetics */
+   body {
+        
+        font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.5em;
+    }
+
+  .jumbotron {
+      background-image: url("../images/cover.jpg");
+      background-size: cover;
+      background-position:40% 60%;
+      color: white;
+    }
+
+  
+
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h3 style="color:white">Plataforma para Docentes </h3>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar"  style="text-align:center; margin-top:10px;" >
+      <ul class="nav navbar-nav navbar-right">      
+        <a href="#" style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> <br>Cerrar Sesión</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="jumbotron container-fluid" >
+  <h1 class="shadow">Yachay Exploradores</h1>      
+  <p><strong>Docente:</strong> Nombre del docente </p>
+  <p><strong>Aula:</strong> Nombre del Aula </p>
+</div>
+
+
+<div class="container text-center">    
+<h2>ENCUESTAS</h2>
+<hr>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3"> 
+      <div class="well">
+        <img src="../images/cliente.png" width="150"/>
+        <hr>
+        <h3>Encuesta de identidad Cultural</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEncuestaIdentidad">Ver</button>
+
+      </div>
+      
+    </div>
+    <div class="col-sm-3">
+      <div class="well">
+        <img src="../images/usabilidad.png" width="150"/>
+        <hr>
+        <h3>Encuesta de Usabilidad</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEncuestaUsabildiad">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div><br>
+
+
+<div class="container text-center">    
+<h2>ESTADISTICAS ESTUDIANTES</h2>
+<hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="well">
+        <img src="../images/espejo.png" width="150"/>
+        <hr>
+        <h3>Métrica funciones de la identidad</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalIdentidad">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="well">
+        <img src="../images/toma-de-decisiones.png" width="150" />
+        <hr>
+        <h3>Métrica Respuesta correcta e incorrecta</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalRespuesta">Ver</button>
+      </div>
+      
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <img src="../images/numero-uno.png" width="150"/>
+        <hr>
+        <h3>Métrica nivel de aprendizaje al primer intento</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalAprendizaje">Ver</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+      <div class="well">
+        <img src="../images/mario.png" width="150"/>
+        <hr>
+        <h3>Métrica Puntaje acumulado por cada escenario</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalAcumulado">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="well">
+        <img src="../images/aprobacion.png" width="150"/>
+        <hr>
+        <h3>Métrica Objeto seleccionado por los estudiantes</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalSeleccionado">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div><br>
+
+<div class="container text-center">    
+<h2>NIVEL DE SATISFACCIÓN</h2>
+<hr>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+      <div class="well">
+        <img src="../images/revision.png" width="150"/>
+        <hr>
+        <h3>Metrica para la valoración de estrellas</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEstrellas">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="well">
+        <img src="../images/emociones.png" width="150"/>
+        <hr>
+        <h3>Métrica para las emociones</h3><br>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEmociones">Ver</button>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div><br>
+
+
+
+  
+<div class="container text-center">    
+  <h2>QUE SE ESPERA LOGRAR</h2>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="well">
+        <h3>Competencias</h3>
+        <button style="margin-bottom: 20px; margin-top: 10px;" type="button" class="btn btn-danger btn-lg" data-toggle="collapse" data-target="#comp">Mostrar</button>
+        <div id="comp" class="collapse">
+          <ul class="list-group">
+            <li class="list-group-item">Construye su identidad</li>
+            <li class="list-group-item">Construye interpretaciones historicas</li>
+          </ul>
         </div>
       </div>
-      <div class="row title"> 
-        <div class="col-sm-5 " ></div>
-        <div class="col-sm-2 " >
-          <div class="panel panel-default" style="">
-            <div  class="panel-body"> <strong>Nombre del Aula :</strong> 123456 </div>
-          </div>
-        </div>
-        <div class="col-sm-5 " ></div>
-        
-      </div>      
-    </div>  
-    <div class="container-fluid">
-      <div class="row" style="text-align:center;margin-top: 50px; ">
-        <div class="col-md-3" >
-          <div>
-            <div class="dropdown">
-              
-              <button class="btn btn-danger dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                ENCUESTAS
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </div>
-          <div style="margin-top: 100px">
-            <div class="dropdown dropup">
-              
-              <button class="btn btn-primary dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                ESTADISTICAS <br> ESTUDIANTES
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6" style="text-align:center;">
-          <img src="../images/logo2.png"/>
-        </div>
-        
-        <div class="col-md-3">
-          <div>
-            <div class="dropdown">
-              <button class="btn btn-danger dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                DOCENTE              
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 100px">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                NIVEL DE SATISFACION <br> DE LOS ESTUDIANTES
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </div>
+      
+    </div>
+    <div class="col-sm-4"> 
+      <div class="well">
+        <h3>Capacidades</h3>
+        <button style="margin-bottom: 20px; margin-top: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#cap">Mostrar</button>
+        <div id="cap" class="collapse">
+          <ul class="list-group">
+            <li class="list-group-item">Se valora asi mismo</li>
+            <li class="list-group-item">Interpreta criticamente fuentes diversas</li>
+          </ul>
         </div>
       </div>
-      <div class="row" style="text-align:center; margin-top: 100px">
-        <div class="col-md-3">
-          <div class="dropdown">
-            
-            <button class="btn btn-warning dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-              COMPETENCIAS
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
+      
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <h3>Desempeño</h3>
+        <button style="margin-bottom: 20px; margin-top: 10px;" type="button" class="btn btn-success btn-lg" data-toggle="collapse" data-target="#desemp">Mostrar</button>
+        <div id="desemp" class="collapse">
+          <ul class="list-group">
+            <li class="list-group-item">Analiza las principales practicas culturales (Molino de Sabandia, Plaza de Armas Fundo el Fierro) de la cuidad de Arequipa para enriquecer su identidad cultural</li>
+            <li class="list-group-item">Utiliza diversas fuentes históricas sobre determinados procesos históricos  para reconocer los hechos históricos  ocurridos en (Molino de Sabandia, Plaza de Armas, Hospital Goyeneche, Fundo el Fierro).</li>
+          </ul>
         </div>
-        <div class="col-md-3">
-          <div class="dropdown">
-            
-            <button class="btn btn-warning dropdown-toggle  btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-              CAPACIDADES
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="dropdown">
-            
-            <button class="btn btn-warning dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-              DESEMPEÑOS
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-        <div class="row socialNetworks">
-            <p>Encuéntranos en: </p>
-            <div class="col-sm-4">
-              <i class='fab fa-google-play' style='font-size:36px'></i>
-            </div>
-            <div class="col-sm-4">
-              <i class='fab fa-facebook-square' style='font-size:36px'></i>
-            </div>
-            <div class="col-sm-4">
-              <i class='fab fa-youtube' style='font-size:36px'></i>
-            </div>
-          </div>
-        </div>
+      </div>
+      
+    </div>
+  </div>
+</div><br>
+
+<footer class="container-fluid text-center">
+  <strong><p>Encuentranos tambien en : </p></strong>
+  <div class="row" style="display: flex; justify-content: center;">
+    <div >
+      <a href="">
+        <img src="../images/facebook.png" width="50px" style="margin: 10px;"/>
+      </a>
+    </div>
+    <div >
+      <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
+    </div>
+    <div >
+      <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- Modal -->
+<div id="modalEstrellas" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Metrica para la valoración de estrellas</h4>
+      </div>
+      <div class="modal-body">
+        
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
-  <style>
-    .title{
-      text-align : center;
-    }
+  </div>
+</div>
 
-    .body{
-      padding: 30px 30px 30px 30px;
-    }
 
-    .buttonTransparent {
-      background-color: Transparent;
-      background-repeat:no-repeat;
-      border: none;
-      cursor:pointer;
-      overflow: hidden;
-      outline:none;
-    }
+<!-- Modal -->
+<div id="modalEmociones" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-    .customButton{
-      height: 20px;
-    }
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica para las emociones</h4>
+      </div>
+      <div class="modal-body">
+        
 
-    .socialNetworks{
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-  </style>
-</html> 
+  </div>
+</div>
 
+<!-- Modal -->
+<div id="modalAcumulado" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica Puntaje acumulado por cada escenario</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalSeleccionado" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica Objeto seleccionado por los estudiantes</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalAprendizaje" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica nivel de aprendizaje al primer intento</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalRespuesta" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica Respuesta correcta e incorrecta</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalEncuestaUsabildiad" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Encuesta de Usabilidad</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalEncuestaIdentidad" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Encuesta de identidad Cultural</h4>
+      </div>
+      <div class="modal-body">
+        
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
