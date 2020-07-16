@@ -47,8 +47,6 @@
       color: white;
     }
 
-  
-
   </style>
 </head>
 <body>

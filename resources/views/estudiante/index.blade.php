@@ -4,12 +4,10 @@
 
 
 
-
 <div class="container text-center">    
   <div class="row content">
 
   
-
     <div class="col-sm-10 text-left">   
     
 
