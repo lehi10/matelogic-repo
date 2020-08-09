@@ -17,15 +17,9 @@ class EstudianteController extends Controller
     public function show()
     {
         if(Auth::user()->role != 0)
-            abort(403,"Usuario no autorizado.");
-        
-        $datos = Student::where('user_id',Auth::user()->id)->get()[0];
-        
-        if($datos["demoSurveyCompleted"] === 1)
-            return view('estudiante.demoform');
-        if($datos["identSurveyCompleted"] === 1)
-            return view('estudiante.demoform');
-        return view('estudiante.index',['datos_estudiante'=>$datos]);
+        abort(403,"Usuario no autorizado.");
+
+        return view('estudiante.index');
     }
 
     public function demoform_show(Request $request){
@@ -110,5 +104,15 @@ class EstudianteController extends Controller
         $student->save();
         
         return redirect("/estudiante")->with('status', 'Guardado !');
+    }
+
+
+    public function identityform_show(Request $request){
+        if(Auth::user()->role != 0)
+            abort(403,"Usuario no autorizado.");
+        
+        $datos = Student::where('user_id',Auth::user()->id)->get()[0];
+    
+        return view('estudiante.identityform',['datos_estudiante'=>$datos]);
     }
 }

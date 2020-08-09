@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Coin' => $baseDir . '/app/Coin.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\DemoSurvey' => $baseDir . '/app/DemoSurvey.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -32,12 +33,15 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\IndentityQuestions' => $baseDir . '/app/IndentityQuestions.php',
     'App\\Interest' => $baseDir . '/app/Interest.php',
+    'App\\Market' => $baseDir . '/app/Market.php',
+    'App\\Object' => $baseDir . '/app/Object.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Stage' => $baseDir . '/app/Stage.php',
+    'App\\Star' => $baseDir . '/app/Star.php',
     'App\\Student' => $baseDir . '/app/Student.php',
     'App\\Teacher' => $baseDir . '/app/Teacher.php',
     'App\\User' => $baseDir . '/app/User.php',

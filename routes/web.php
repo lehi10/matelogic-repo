@@ -50,8 +50,10 @@ Route::group(['middleware'=>['web','auth']],function(){
 
     Route::get('/estudiante', 'EstudianteController@show');
     Route::get('/demoform', 'EstudianteController@demoform_show');
+    Route::get('/identityform', 'EstudianteController@identityform_show');
     
     Route::post('/saveDemoForm', 'EstudianteController@demoform_save');
+    Route::post('/saveIdentityForm', 'EstudianteController@identityform_save');
 
 
     Route::get('/profesor', 'ProfesorController@show');

@@ -546,6 +546,7 @@ class ComposerStaticInit83c33463ce171bd5fa0f708b338b259e
     );
 
     public static $classMap = array (
+        'App\\Coin' => __DIR__ . '/../..' . '/app/Coin.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\DemoSurvey' => __DIR__ . '/../..' . '/app/DemoSurvey.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -572,12 +573,15 @@ class ComposerStaticInit83c33463ce171bd5fa0f708b338b259e
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\IndentityQuestions' => __DIR__ . '/../..' . '/app/IndentityQuestions.php',
         'App\\Interest' => __DIR__ . '/../..' . '/app/Interest.php',
+        'App\\Market' => __DIR__ . '/../..' . '/app/Market.php',
+        'App\\Object' => __DIR__ . '/../..' . '/app/Object.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Stage' => __DIR__ . '/../..' . '/app/Stage.php',
+        'App\\Star' => __DIR__ . '/../..' . '/app/Star.php',
         'App\\Student' => __DIR__ . '/../..' . '/app/Student.php',
         'App\\Teacher' => __DIR__ . '/../..' . '/app/Teacher.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',

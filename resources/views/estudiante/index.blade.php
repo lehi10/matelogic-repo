@@ -1,355 +1,123 @@
-@extends('layouts.app')
-
-@section('content')
-
-
-
-<div class="container text-center">    
-  <div class="row content">
-
-  
-    <div class="col-sm-10 text-left">   
-    @if (session('status'))
-        <div class="alert alert-success alert-dismissible fade show">
-            {{ session('status') }}
-        </div>
-    @endif
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Yachay Exploradores - Docentes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
     
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
 
-    <h2>Identidad Cultural - Formulario de estudiante </h2><hr>
-            <p>Buen día, estudiante de la prestigiosa I.E. Independencia Americana de Arequipa. Te pedimos por favor que contestes las preguntas, ya que es para una investigación de carácter académico donde nos interesa conocer tu opinión acerca de la Identidad cultural. La información obtenida será anónima, por lo que no se te pide ningún dato.
-                Instrucciones: Lee detenidamente y marca la respuesta con una “X”, que, según tú, sea la opinión que tengas al respecto, teniendo en cuenta la siguiente escala:</p>
-            <p>Instrucciones: Lee detenidamente y marca la respuesta con una “X”, que, según tú, sea la opinión que tengas al respecto, teniendo en cuenta la siguiente escala:
-                Nunca = N = 1 A veces = AV = 2 Siempre = S = 3</p>
-        <br><br>
-            <form action="/saveForm" method="POST">       
-            @csrf     
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                    1. Valoras las festividades religiosas de tu localidad
-                </strong>
-                </div>
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  
+  .shadow {
+  text-shadow: 2px 2px #525B61;
+  }
+  .shadow2 {
+    text-shadow: 1px 1px #83919B;
+  }
 
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q1" value = 0 {{ $datos_estudiante["q1"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q1" value= 1 {{ $datos_estudiante["q1"]== 1 ?  "checked" : "" }} >Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q1" value = 2 {{ $datos_estudiante["q1"]== 2 ?  "checked" : "" }} >Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-            
+   /* Aesthetics */
+   body {
+        
+        font-family: Montserrat, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.5em;
+    }
 
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                2. Defiendes las costumbres de tu ciudad o localidad.
-                </strong>
-                </div>
+  .jumbotron {
+      background-image: url("../images/cover.jpg");
+      background-size: cover;
+      background-position:40% 60%;
+      color: white;
+    }
 
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q2" value = 0  {{ $datos_estudiante["q2"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q2" value = 1 {{ $datos_estudiante["q2"]== 1 ?  "checked" : "" }}> Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q2" value = 2 {{ $datos_estudiante["q2"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                3. Te identificas con los valores que practican en tu ciudad o comunidad.
-                </strong>
-                </div>
+  .modal-ku {
+    padding-top: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
 
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q3" value = 0 {{ $datos_estudiante["q3"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q3" value = 1 {{ $datos_estudiante["q3"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q3" value = 2 {{ $datos_estudiante["q3"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                4. Difundes la historia de tu ciudad y/o comunidad.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q4" value = 0 {{ $datos_estudiante["q4"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q4" value = 1 {{ $datos_estudiante["q4"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q4" value = 2 {{ $datos_estudiante["q4"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                5. Valoras la historia de tu ciudad y/o comunidad
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q5" value = 0 {{ $datos_estudiante["q5"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q5" value = 1 {{ $datos_estudiante["q5"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q5" value = 2 {{ $datos_estudiante["q5"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
+  </style>
+</head>
+<body>
 
 
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                6. Valoras a los personajes históricos y hechos históricos de tu ciudad y/o comunidad
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q6" value = 0 {{ $datos_estudiante["q6"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q6" value = 1 {{ $datos_estudiante["q6"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q6" value = 2 {{ $datos_estudiante["q6"]== 2 ?  "checked" : "" }} >Siempre
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                7. Las personalidades arequipeñas intelectuales, políticos, literatos, Científicos, tecnólogos, artistas, filósofos y humanistas te motivan a ser más arequipeño.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q7" value = 0 {{ $datos_estudiante["q7"]== 0 ?  "checked" : "" }} >Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q7" value = 1 {{ $datos_estudiante["q7"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q7" value = 2 {{ $datos_estudiante["q7"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                8. Te identificas bastante con los edificios y plazas del Centro Histórico y demás Monumentos históricos en los distintos distritos de Arequipa.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q8" value = 0 {{ $datos_estudiante["q8"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q8" value = 1 {{ $datos_estudiante["q8"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q8" value = 2 {{ $datos_estudiante["q8"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                9. Las campiñas y el sillar en las construcción de edificios coloniales te hacen sentir muy arequipeño.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q9" value = 0 {{ $datos_estudiante["q9"]== 0 ?  "checked" : "" }} >Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q9" value = 1 {{ $datos_estudiante["q9"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q9" value = 2 {{ $datos_estudiante["q9"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                10. Promueves el aprendizaje de dialecto o loncco arequipeño en tu barrio
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q10" value = 0 {{ $datos_estudiante["q10"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q10" value = 1 {{ $datos_estudiante["q10"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q10" value = 2 {{ $datos_estudiante["q10"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                11. Te esfuerzas por aprender más el loncco y arequipeñismos de nuestra ciudad.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q11" value = 0 {{ $datos_estudiante["q11"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q11" value = 1 {{ $datos_estudiante["q11"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q11" value = 2 {{ $datos_estudiante["q11"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                12. Valoras la gastronomía de la ciudad de Arequipa en tu localidad
-
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q12" value = 0 {{ $datos_estudiante["q12"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q12" value = 1 {{ $datos_estudiante["q12"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q12" value = 2 {{ $datos_estudiante["q12"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                13. Te gusta los platos típicos (roco relleno, soltero de queso, adobo antaño, etc.).
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q13" value = 0 {{ $datos_estudiante["q13"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q13" value = 1 {{ $datos_estudiante["q13"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q13" value = 2 {{ $datos_estudiante["q13"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                14. Participas en las fiestas y aniversarios en la ciudad de Arequipa.
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q14" value = 0 {{ $datos_estudiante["q14"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q14" value = 1 {{ $datos_estudiante["q14"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q14" value=2 {{ $datos_estudiante["q14"]== 2 ?  "checked" : "" }}> Siempre
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-8" > 
-                <strong>
-                15. Te interesas por aprender y practicar las tradiciones y costumbres de la ciudad de Arequipa
-                </strong>
-                </div>
-
-                <div class="col-sm-4" >
-                    <label class="radio-inline">
-                        <input type="radio" name="q15" value = 0 {{ $datos_estudiante["q15"]== 0 ?  "checked" : "" }}>Nunca
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q15" value = 1 {{ $datos_estudiante["q15"]== 1 ?  "checked" : "" }}>Aveces
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="q15" value = 2 {{ $datos_estudiante["q15"]== 2 ?  "checked" : "" }}>Siempre
-                    </label>
-                </div>
-            </div>
-             <hr>
-             <div class="col-sm-12 text-center">   
-
-                <button type="submit" class="btn btn-success">Enviar</button>
-            </div>  
-        </form>
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h3 style="color:white">Plataforma para Estudiantes </h3>
+      
     </div>
-   
+    <div class="collapse navbar-collapse" id="myNavbar"  style="text-align:center; margin-top:10px;" >
+      <ul class="nav navbar-nav navbar-right">      
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"
+            style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> <br>Cerrar Sesión</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+      </ul>
+    </div>
   </div>
-</div>
-<br><br>
+</nav>
 
 
-@endsection
+<footer class="container-fluid text-center">
+  <strong><p>Encuentranos tambien en : </p></strong>
+  <div class="row" style="display: flex; justify-content: center;">
+    <div >
+      <a href="https://web.facebook.com/YachayExploradores/">
+        <img src="../images/facebook.png" width="50px" style="margin: 10px;"/>
+      </a>
+    </div>
+    <div >
+        <a href="">
+          <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
+        </a>
+    </div>
+    <div >
+      <a href="https://play.google.com/store/apps/details?id=com.lizard.yachay&hl=es">
+        <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
