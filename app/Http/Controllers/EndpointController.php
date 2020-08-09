@@ -102,7 +102,7 @@ class EndpointController extends Controller
         $estrellasArray->plaza=$obj0;
         $estrellasArray->fundo=$obj1;
         $estrellasArray->molino=$obj2;
-        $estrellasArray->hopital=$obj3;
+        $estrellasArray->hospital=$obj3;
         $estrellasArray->save();
         
         
