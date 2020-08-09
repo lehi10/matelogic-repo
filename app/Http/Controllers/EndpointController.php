@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use  App\User;
+use App\Tienda;
 use App\IndentityQuestions;
 use Illuminate\Http\Request;
 
@@ -83,6 +84,7 @@ class EndpointController extends Controller
     }
 
     public function  endpointEstrellas(Request $request){
+        
 
     }
 
@@ -91,7 +93,20 @@ class EndpointController extends Controller
     }
 
     public function endpointTienda(Request $request){
+        
+        $userID = $request['userID'];
+        $itemsTienda = $tienda['tienda'];
 
+        $itemsArray = $itemsTienda.split(',');
+        $obj1 = intval($itemsArray[0]);
+
+        $itemsTienda = Tienda::where('user_id',$userID)->get();
+        $itemsTienda->obj1=$obj1;
+
+        
+        $itemsTienda->save();
+
+        return "Success";
     }
 
 }
