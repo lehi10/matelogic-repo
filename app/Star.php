@@ -8,7 +8,5 @@ class Star extends Model
 {
     protected $fillable = [
         'user_id', 'teacher_id','plaza','fundo','molino','hospital',
-        
-
     ]; 
 }

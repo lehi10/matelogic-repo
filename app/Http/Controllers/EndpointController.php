@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use  App\User;
-use App\Tienda;
+use App\Item;
 use App\IndentityQuestions;
 use Illuminate\Http\Request;
 
@@ -93,19 +93,23 @@ class EndpointController extends Controller
     }
 
     public function endpointTienda(Request $request){
+
+        
         
         $userID = $request['userID'];
-        $itemsTienda = $tienda['tienda'];
+        $itemsTienda = $request['tienda'];
 
-        $itemsArray = $itemsTienda.split(',');
+
+        $itemsArray = explode(',',$itemsTienda);
         $obj1 = intval($itemsArray[0]);
-
-        $itemsTienda = Tienda::where('user_id',$userID)->get();
-        $itemsTienda->obj1=$obj1;
-
         
-        $itemsTienda->save();
 
+        $itemsTienda = Item::where('user_id',$userID)->get()[0];
+        $itemsTienda->obj1=$obj1;
+        $itemsTienda->save();
+        return $itemsTienda;
+        
+        
         return response()->json(['code'=> 200,'message'=>'Success']);
     }
 
