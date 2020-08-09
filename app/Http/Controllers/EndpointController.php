@@ -106,7 +106,7 @@ class EndpointController extends Controller
         
         $itemsTienda->save();
 
-        return "Success";
+        return response()->json(['code'=> 200,'message'=>'Success']);
     }
 
 }
