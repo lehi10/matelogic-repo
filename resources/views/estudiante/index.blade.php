@@ -9,6 +9,11 @@
 
   
     <div class="col-sm-10 text-left">   
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session('status') }}
+        </div>
+    @endif
     
 
     <h2>Identidad Cultural - Formulario de estudiante </h2><hr>
@@ -17,14 +22,6 @@
             <p>Instrucciones: Lee detenidamente y marca la respuesta con una “X”, que, según tú, sea la opinión que tengas al respecto, teniendo en cuenta la siguiente escala:
                 Nunca = N = 1 A veces = AV = 2 Siempre = S = 3</p>
         <br><br>
-
-            @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    {{ session('status') }}
-                </div>
-            @endif
-                    
-
             <form action="/saveForm" method="POST">       
             @csrf     
             <div class="row">

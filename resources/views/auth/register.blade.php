@@ -22,7 +22,7 @@
                         <div class="form-group row" >
                             <label for="role" class="col-md-4 col-form-label text-md-right">Tipo de Cuenta</label>
                             <div class="col-md-6">
-                                <select class="form-control"  id="role_selector" name="role">
+                                <select class="form-control"  id="role_selector" name="role" onChange="onChange()"> 
                                     <option value="0" >Estudiante</option>
                                     <option value="1" >Maestro</option>
                                 </select>
@@ -92,10 +92,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-
-                        
+                        </div>                        
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
@@ -108,7 +105,7 @@
 
 
                         <div class="form-group row" id="code-form">
-                            <label for="code" class="col-md-4 col-form-label text-md-right">Código de Clase <br>(Solo para estudiantes)</label>
+                            <label for="code" class="col-md-4 col-form-label text-md-right">Código de Clase <br>(Si no tiene código puede solicitarlo a su profesor)</label>
 
                             <div class="col-md-6" >
                                 <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" name="code"  autocomplete="code">
@@ -123,8 +120,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button onclick="myFunction()" type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button onclick="myFunction()" type="submit" class="btn btn-primary btn-lg">
+                                    Registrar
                                 </button>
                             </div>
                         </div>
@@ -150,6 +147,17 @@ function myFunction() {
         document.getElementById("code").required = 0;
     }
 }
+
+function onChange(){
+    if(document.getElementById("role_selector").value==1)
+    {
+        document.getElementById("code-form").style.visibility = "hidden";
+    }
+    else{
+        document.getElementById("code-form").style.visibility = "visible";
+    }
+}
+
 
 </script>
     

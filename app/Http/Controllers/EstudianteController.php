@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use  App\Student;
+use App\DemoSurvey;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,11 @@ class EstudianteController extends Controller
             abort(403,"Usuario no autorizado.");
         
         $datos = Student::where('user_id',Auth::user()->id)->get()[0];
-
+        
+        if($datos["demoSurveyCompleted"] === 1)
+            return view('estudiante.demoform');
+        if($datos["identSurveyCompleted"] === 1)
+            return view('estudiante.demoform');
         return view('estudiante.index',['datos_estudiante'=>$datos]);
     }
 
@@ -35,7 +40,23 @@ class EstudianteController extends Controller
         if(Auth::user()->role != 0)
         abort(403,"Usuario no autorizado.");
         
-        return $request;
+
+        $survey = DemoSurvey::where("user_id",Auth::user()->id)->get()[0];
+        $survey->q1 = $request->direccion;
+        $survey->q2 = $request->l_nac;
+        $survey->q3 = $request->l_nac_padre;
+        $survey->q4 = $request->l_nac_madre;
+        $survey->q5 = $request->sexo;
+        $survey->q6 = $request->idioma;
+        $survey->q7 = $request->cuidad_identificado;
+        $survey->q8 = $request->plato_tipico;
+        $survey->q9 = $request->animal_tipico;
+
+        $datos = Student::where('user_id',Auth::user()->id)->get()[0];
+        $datos->demoSurveyCompleted = 1;
+
+        $survey->save();
+
         return redirect("/estudiante")->with('status', 'Guardado !');
     }
 

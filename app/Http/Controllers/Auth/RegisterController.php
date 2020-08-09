@@ -11,6 +11,7 @@ use App\IndentityQuestions;
 use App\Teacher;
 use App\Interest;
 use App\Valoration;
+use App\DemoSurvey;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -95,11 +96,19 @@ class RegisterController extends Controller
 
                 $id_user = User::select('id', 'email')->where('email',$data['email'])->get();
                 
+                
+
                 $student = new Student;
                 $student->user_id    = $id_user[0]['id'];
                 $student->teacher_id = $data['code'];
                 $student->save();
                 
+                $survey = new DemoSurvey;
+                $survey->user_id    = $id_user[0]['id'];
+                $survey->teacher_id = $data['code'];
+                $survey->save();
+                
+
                 $questions = new IndentityQuestions;
                 $questions->user_id    = $id_user[0]['id'];
                 $questions->teacher_id = $data['code'];

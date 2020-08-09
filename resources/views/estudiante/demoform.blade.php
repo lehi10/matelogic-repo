@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <label >Lugar de Nacimiento del Padre</label>
-      <input type="email" class="form-control" name="l_nac_padre">
+      <input type="text" class="form-control" name="l_nac_padre">
     </div>
 
     <div class="form-group">
