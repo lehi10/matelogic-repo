@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Auth;
 use  App\User;
 use App\Item;
+use App\Coin;
+use App\Star;
 use App\IndentityQuestions;
 use Illuminate\Http\Request;
 
@@ -85,10 +87,51 @@ class EndpointController extends Controller
 
     public function  endpointEstrellas(Request $request){
         
+        $userID = $request['userID'];
+        $estrellas = $request['estrellas'];
 
+
+        $itemsArray = explode(',',$estrellas);
+        $obj0 = intval($itemsArray[0]);
+        $obj1 = intval($itemsArray[1]);
+        $obj2 = intval($itemsArray[2]);
+        $obj3 = intval($itemsArray[3]);
+        
+
+        $estrellasArray = Star::where('user_id',$userID)->get()[0];
+        $estrellasArray->plaza=$obj0;
+        $estrellasArray->fundo=$obj1;
+        $estrellasArray->molino=$obj2;
+        $estrellasArray->hopital=$obj3;
+        $estrellasArray->save();
+        
+        
+        return response()->json(['code'=> 200,'message'=>'Success']);
     }
 
     public function endpointMonedas(Request $request){
+
+
+        $userID = $request['userID'];
+        $modenas = $request['monedas'];
+
+
+        $itemsArray = explode(',',$modenas);
+        $obj0 = intval($itemsArray[0]);
+        $obj1 = intval($itemsArray[1]);
+        $obj2 = intval($itemsArray[2]);
+        $obj3 = intval($itemsArray[3]);
+        
+
+        $monedasArray = Coin::where('user_id',$userID)->get()[0];
+        $monedasArray->plaza=$obj0;
+        $monedasArray->fundo=$obj1;
+        $monedasArray->molino=$obj2;
+        $monedasArray->hospital=$obj3;
+        $monedasArray->save();
+        
+        
+        return response()->json(['code'=> 200,'message'=>'Success']);
 
     }
 
@@ -107,7 +150,6 @@ class EndpointController extends Controller
         $itemsTienda = Item::where('user_id',$userID)->get()[0];
         $itemsTienda->obj1=$obj1;
         $itemsTienda->save();
-        return $itemsTienda;
         
         
         return response()->json(['code'=> 200,'message'=>'Success']);
