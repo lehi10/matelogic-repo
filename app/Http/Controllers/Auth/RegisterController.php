@@ -11,6 +11,9 @@ use App\IndentityQuestions;
 use App\Teacher;
 use App\Interest;
 use App\Valoration;
+use App\Coin;
+use App\Star;
+use App\Item;
 use App\DemoSurvey;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -129,6 +132,23 @@ class RegisterController extends Controller
                 $valoration->user_id    = $id_user[0]['id'];
                 $valoration->teacher_id = $data['code'];
                 $valoration->save();
+
+                $coins = new Coin;
+                $coins->user_id    = $id_user[0]['id'];
+                $coins->teacher_id = $data['code'];
+                $coins->save();
+
+                $stars = new Star;
+                $stars->user_id    = $id_user[0]['id'];
+                $stars->teacher_id = $data['code'];
+                $stars->save();
+
+                $items = new Item;
+                $items->user_id    = $id_user[0]['id'];
+                $items->teacher_id = $data['code'];
+                $items->save();
+
+                
         }
         //Si es un maestro
         else{

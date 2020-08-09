@@ -82,5 +82,16 @@ class EndpointController extends Controller
             
     }
 
+    public function  endpointEstrellas(Request $request){
+
+    }
+
+    public function endpointMonedas(Request $request){
+
+    }
+
+    public function endpointTienda(Request $request){
+
+    }
 
 }

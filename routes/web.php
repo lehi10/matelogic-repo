@@ -33,6 +33,10 @@ Route::get('/newDocente',function(){ return view('newViews/docente');});
 Route::post('/endpoint', 'EndpointController@questions');
 Route::post('/endpoint/login/', 'EndpointController@login');
 
+Route::post('/endpoint/estrellas/', 'EndpointController@endpointEstrellas');
+Route::post('/endpoint/tienda/', 'EndpointController@endpointTienda');
+Route::post('/endpoint/monedas/', 'EndpointController@endpointMonedas');
+
 
 
 Route::group(['middleware'=>['web','auth']],function(){

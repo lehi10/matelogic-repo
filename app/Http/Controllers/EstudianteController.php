@@ -19,6 +19,12 @@ class EstudianteController extends Controller
         if(Auth::user()->role != 0)
         abort(403,"Usuario no autorizado.");
 
+        $datos = Student::where('user_id',Auth::user()->id)->get()[0];
+
+        if($datos["demoSurveyCompleted"] === 0)
+            return redirect("/demosurvey");
+        if($datos["identSurveyCompleted"] === 0)
+            return redirect("/identityform");
         return view('estudiante.index');
     }
 
@@ -45,16 +51,18 @@ class EstudianteController extends Controller
         $survey->q7 = $request->cuidad_identificado;
         $survey->q8 = $request->plato_tipico;
         $survey->q9 = $request->animal_tipico;
+        $survey->save();
+        
 
         $datos = Student::where('user_id',Auth::user()->id)->get()[0];
         $datos->demoSurveyCompleted = 1;
 
-        $survey->save();
+        $datos->save();
 
         return redirect("/estudiante")->with('status', 'Guardado !');
     }
 
-    public function saveForm(Request $request)
+    public function identityform_save(Request $request)
     {
         if(Auth::user()->role != 0)
             abort(403,"Usuario no autorizado.");
@@ -95,13 +103,14 @@ class EstudianteController extends Controller
         $preguntas[$request->q13] +=1;
         $preguntas[$request->q14] +=1;
         $preguntas[$request->q15] +=1;
-
         $student->nunca=$preguntas[0];
         $student->siempre=$preguntas[1];
         $student->aveces=$preguntas[2];
-
-
         $student->save();
+
+        $datos = Student::where('user_id',Auth::user()->id)->get()[0];
+        $datos->identSurveyCompleted = 1;
+        $datos->save();
         
         return redirect("/estudiante")->with('status', 'Guardado !');
     }
@@ -112,7 +121,7 @@ class EstudianteController extends Controller
             abort(403,"Usuario no autorizado.");
         
         $datos = Student::where('user_id',Auth::user()->id)->get()[0];
-    
+        
         return view('estudiante.identityform',['datos_estudiante'=>$datos]);
     }
 }
