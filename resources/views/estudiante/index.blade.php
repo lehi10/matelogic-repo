@@ -51,7 +51,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-inverse ">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -60,11 +59,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <h3 style="color:white">Plataforma para Estudiantes </h3>
+      <h3 style="color:white">Plataforma para Docentes </h3>
+      
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Cerrar Sesión</a></li>
+    <div class="collapse navbar-collapse" id="myNavbar"  style="text-align:center; margin-top:10px;" >
+      <ul class="nav navbar-nav navbar-right">      
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"
+            style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> <br>Cerrar Sesión</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
       </ul>
     </div>
   </div>

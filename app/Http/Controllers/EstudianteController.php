@@ -22,7 +22,7 @@ class EstudianteController extends Controller
         $datos = Student::where('user_id',Auth::user()->id)->get()[0];
 
         if($datos["demoSurveyCompleted"] === 0)
-            return redirect("/demosurvey");
+            return redirect("/demoform");
         if($datos["identSurveyCompleted"] === 0)
             return redirect("/identityform");
         return view('estudiante.index');
