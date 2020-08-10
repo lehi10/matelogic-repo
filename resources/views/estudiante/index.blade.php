@@ -203,7 +203,7 @@
       <div class="well">
         <img src="../images/revision.png" width="150"/>
         <hr>
-        <h3>Metrica para la valoración de estrellas</h3>
+        <h3>Métrica para la valoración de estrellas</h3>
         <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEstrellas">Ver</button>
       </div>
     </div>
@@ -253,7 +253,7 @@
     </div>
     <div class="col-sm-4">
       <div class="well">
-        <h3>Desempeño</h3>
+        <h3>Desempeños</h3>
         <button style="margin-bottom: 20px; margin-top: 10px;" type="button" class="btn btn-success btn-lg" data-toggle="collapse" data-target="#desemp">Mostrar</button>
         <div id="desemp" class="collapse">
           <ul class="list-group">
@@ -300,7 +300,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Metrica para la valoración de estrellas</h4>
+        <h4 class="modal-title">Métrica para la valoración de estrellas</h4>
       </div>
       <div class="modal-body">
       <table class="table">

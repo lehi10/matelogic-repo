@@ -72,16 +72,16 @@
             <p>Encuéntranos en: </p>
             <div class="col-sm-4">
               <a href="https://play.google.com/store/apps/details?id=com.lizard.yachay&hl=es">
-                <i class='fab fa-google-play' style='font-size:36px'></i>
+                <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
               </a>
             </div>
             <div class="col-sm-4">
               <a href="https://web.facebook.com/YachayExploradores/">
-                <i class='fab fa-facebook-square' style='font-size:36px'></i>
+                <img src="../images/facebook.png" width="50px" style="margin: 10px;"/>
               </a>
             </div>
             <div class="col-sm-4">
-              <i class='fab fa-youtube' style='font-size:36px'></i>
+              <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
             </div>
           </div>
         </div>
