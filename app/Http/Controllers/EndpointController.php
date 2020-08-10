@@ -144,11 +144,56 @@ class EndpointController extends Controller
 
 
         $itemsArray = explode(',',$itemsTienda);
-        $obj1 = intval($itemsArray[0]);
+        $obj0 = intval($itemsArray[0]);
+        $obj1 = intval($itemsArray[1]);
+        $obj2 = intval($itemsArray[2]);
+        $obj3 = intval($itemsArray[3]);
+        $obj4 = intval($itemsArray[4]);
+        $obj5 = intval($itemsArray[5]);
+        $obj6 = intval($itemsArray[6]);
+        $obj7 = intval($itemsArray[7]);
+        $obj8 = intval($itemsArray[8]);
+        $obj9 = intval($itemsArray[9]);
+        $obj10 = intval($itemsArray[10]);
+        $obj11 = intval($itemsArray[11]);
+        $obj12 = intval($itemsArray[12]);
+        $obj13 = intval($itemsArray[13]);
+        $obj15 = intval($itemsArray[14]);
+        $obj16 = intval($itemsArray[15]);
+        $obj17 = intval($itemsArray[16]);
+        $obj18 = intval($itemsArray[17]);
+        $obj19 = intval($itemsArray[18]);
+        $obj19 = intval($itemsArray[19]);
+        $obj20 = intval($itemsArray[20]);
+        $obj21 = intval($itemsArray[21]);
+        $obj22 = intval($itemsArray[22]);
+        $obj23 = intval($itemsArray[23]);
         
-
         $itemsTienda = Item::where('user_id',$userID)->get()[0];
-        $itemsTienda->obj1=$obj1;
+        $itemsTienda->obj1=$obj0;
+        $itemsTienda->obj2=$obj1;
+        $itemsTienda->obj3=$obj2;
+        $itemsTienda->obj4=$obj3;
+        $itemsTienda->obj5=$obj4;
+        $itemsTienda->obj6=$obj5;
+        $itemsTienda->obj7=$obj6;
+        $itemsTienda->obj8=$obj7;
+        $itemsTienda->obj9=$obj8;
+        $itemsTienda->obj10=$obj9;
+        $itemsTienda->obj11=$obj10;
+        $itemsTienda->obj12=$obj11;
+        $itemsTienda->obj13=$obj12;
+        $itemsTienda->obj14=$obj13;
+        $itemsTienda->obj15=$obj14;
+        $itemsTienda->obj16=$obj15;
+        $itemsTienda->obj17=$obj16;
+        $itemsTienda->obj18=$obj17;
+        $itemsTienda->obj19=$obj18;
+        $itemsTienda->obj20=$obj19;
+        $itemsTienda->obj21=$obj20;
+        $itemsTienda->obj22=$obj21;
+        $itemsTienda->obj23=$obj22;
+        $itemsTienda->obj24=$obj23;
         $itemsTienda->save();
         
         

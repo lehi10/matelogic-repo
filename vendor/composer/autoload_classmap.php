@@ -43,6 +43,7 @@ return array(
     'App\\Star' => $baseDir . '/app/Star.php',
     'App\\Student' => $baseDir . '/app/Student.php',
     'App\\Teacher' => $baseDir . '/app/Teacher.php',
+    'App\\Usability' => $baseDir . '/app/Usability.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\Valoration' => $baseDir . '/app/Valoration.php',
     'Balping\\JsonRaw\\Encoder' => $vendorDir . '/balping/json-raw-encoder/src/Encoder.php',

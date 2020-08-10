@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -32,6 +33,13 @@
       display: none; 
     }
   }
+  
+  .shadow {
+  text-shadow: 2px 2px #525B61;
+  }
+  .shadow2 {
+    text-shadow: 1px 1px #83919B;
+  }
 
    /* Aesthetics */
    body {
@@ -47,7 +55,18 @@
       color: white;
     }
 
-  </style>
+  .modal-ku {
+    
+    padding-top: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+    </style>
 </head>
 <body>
 
@@ -59,7 +78,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <h3 style="color:white">Plataforma para Docentes </h3>
+      <h3 style="color:white">Plataforma para Estudiantes </h3>
       
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"  style="text-align:center; margin-top:10px;" >
@@ -83,7 +102,14 @@
 </div>
 
 
-<div class="container text-center">    
+<div class="container text-center">   
+
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show">
+        {{ session('status') }}
+    </div>
+@endif
+  
 <h2>MI PERFIL</h2>
 <hr>
   <div class="row">
@@ -208,7 +234,6 @@
         <div id="comp" class="collapse">
           <ul class="list-group">
             <li class="list-group-item">Construye su identidad</li>
-            <li class="list-group-item">Construye interpretaciones historicas</li>
           </ul>
         </div>
       </div>
@@ -221,7 +246,6 @@
         <div id="cap" class="collapse">
           <ul class="list-group">
             <li class="list-group-item">Se valora asi mismo</li>
-            <li class="list-group-item">Interpreta criticamente fuentes diversas</li>
           </ul>
         </div>
       </div>
@@ -234,7 +258,9 @@
         <div id="desemp" class="collapse">
           <ul class="list-group">
             <li class="list-group-item">Analiza las principales practicas culturales (Molino de Sabandia, Plaza de Armas Fundo el Fierro) de la cuidad de Arequipa para enriquecer su identidad cultural</li>
-            <li class="list-group-item">Utiliza diversas fuentes históricas sobre determinados procesos históricos  para reconocer los hechos históricos  ocurridos en (Molino de Sabandia, Plaza de Armas, Hospital Goyeneche, Fundo el Fierro).</li>
+            <li class="list-group-item">Explica y valora sus caracteristicas personales, culturales y sociales relacionadas a la cuidad de Arequipa. </li>
+            <li class="list-group-item">Opina reflexivamente sobre las practicas culturales de la cuidad de Arequipa</li>
+            <li class="list-group-item">Muestra aprecio por su herencia y cultural, y la del país, sintiendose parte de el.</li>
           </ul>
         </div>
       </div>
@@ -247,15 +273,19 @@
   <strong><p>Encuentranos tambien en : </p></strong>
   <div class="row" style="display: flex; justify-content: center;">
     <div >
-      <a href="">
+      <a href="https://web.facebook.com/YachayExploradores/">
         <img src="../images/facebook.png" width="50px" style="margin: 10px;"/>
       </a>
     </div>
     <div >
+      <a href="">
       <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
+      </a>
     </div>
     <div >
-      <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+      <a href="https://play.google.com/store/apps/details?id=com.lizard.yachay&hl=es">
+        <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+      </a>
     </div>
   </div>
 </footer>
@@ -264,7 +294,7 @@
 
 <!-- Modal -->
 <div id="modalEstrellas" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -273,7 +303,63 @@
         <h4 class="modal-title">Metrica para la valoración de estrellas</h4>
       </div>
       <div class="modal-body">
-        
+      <table class="table">
+        <thead>
+            <tr>
+              <th>Valoración</th>
+              <th>Porcentaje</th>
+              <th>Total </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img width="15" src ="/images/estrella.png"></img></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+        <div id='grafico_6'></div>
 
 
       </div>
@@ -288,7 +374,7 @@
 
 <!-- Modal -->
 <div id="modalEmociones" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -297,6 +383,32 @@
         <h4 class="modal-title">Métrica para las emociones</h4>
       </div>
       <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Emociones</th>
+              <th>Porcentaje de estudiantes</th>
+              <th>Total </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><center>FELIZ <br><img width="50" src ="/images/feliz.png"></img>   </center></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><center>ABURRIDO <br><img width="50" src ="/images/aburrido.png"></img>   </center></td><td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><center>TRISTE <br><img width="50" src ="/images/triste.png"></img>   </center></td><td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        
         
 
         
@@ -311,7 +423,7 @@
 
 <!-- Modal -->
 <div id="modalAcumulado" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -321,7 +433,33 @@
       </div>
       <div class="modal-body">
         
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>Escenarios</th>
+                <th>Puntaje Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Fundo del Fierro</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Plaza de Armas</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Hospital Goyeneche</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Molino de Sabandía</td>
+                <td>0</td>
+            </tr>
 
+            </tbody>
+          </table>
         
       </div>
       <div class="modal-footer">
@@ -334,7 +472,7 @@
 
 <!-- Modal -->
 <div id="modalSeleccionado" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -344,7 +482,7 @@
       </div>
       <div class="modal-body">
         
-
+      <div id='grafico_5'></div>
         
       </div>
       <div class="modal-footer">
@@ -357,7 +495,7 @@
 
 <!-- Modal -->
 <div id="modalAprendizaje" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -367,7 +505,44 @@
       </div>
       <div class="modal-body">
         
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+                <th></th>
+                <th>Frecuencia</th>
+                <th>Porcentaje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Satisfactorio(35-46) </td>
+                <td>0</td>
+                <td>0 %</td>
+            </tr>
+            <tr>
+                <td>Proceso(24-35)</td>
+                <td>0</td>
+                <td>0 %</td>
+            </tr>
+            <tr>
+              <td>Inicio(12-23)</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            <tr>
+              <td>Previo al inicio(0-11)</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            <tr>
+              <td>TOTAL</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            </tbody>
+          </table>
 
+        <div id='grafico_03'></div>
         
       </div>
       <div class="modal-footer">
@@ -380,7 +555,7 @@
 
 <!-- Modal -->
 <div id="modalRespuesta" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -389,9 +564,29 @@
         <h4 class="modal-title">Métrica Respuesta correcta e incorrecta</h4>
       </div>
       <div class="modal-body">
-        
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+                <th></th>
+                <th>Frecuencia</th>
+                <th>Porcentaje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Incorrectas </td>
+                <td>0</td>
+                <td>0%</td>
+            </tr>
+            <tr>
+                <td>Correctas</td>
+                <td>0</td>
+                <td>0 %</td>
+            </tr>
+            </tbody>
+          </table>
 
-        
+        <div id='grafico_02'></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -403,7 +598,7 @@
 
 <!-- Modal -->
 <div id="modalEncuesta" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -412,8 +607,331 @@
         <h4 class="modal-title">Encuesta</h4>
       </div>
       <div class="modal-body">
-        
+        <form action="/saveIdentityForm" method="POST">       
+          @csrf     
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+                  1. Valoras las festividades religiosas de tu localidad
+              </strong>
+              </div>
 
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q1" value = 0 {{ $encuesta_identidad["q1"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q1" value= 1 {{ $encuesta_identidad["q1"]== 1 ?  "checked" : "" }} >Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q1" value = 2 {{ $encuesta_identidad["q1"]== 2 ?  "checked" : "" }} >Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+          
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              2. Defiendes las costumbres de tu ciudad o localidad.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q2" value = 0  {{ $encuesta_identidad["q2"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q2" value = 1 {{ $encuesta_identidad["q2"]== 1 ?  "checked" : "" }}> Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q2" value = 2 {{ $encuesta_identidad["q2"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              3. Te identificas con los valores que practican en tu ciudad o comunidad.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q3" value = 0 {{ $encuesta_identidad["q3"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q3" value = 1 {{ $encuesta_identidad["q3"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q3" value = 2 {{ $encuesta_identidad["q3"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              4. Difundes la historia de tu ciudad y/o comunidad.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q4" value = 0 {{ $encuesta_identidad["q4"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q4" value = 1 {{ $encuesta_identidad["q4"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q4" value = 2 {{ $encuesta_identidad["q4"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              5. Valoras la historia de tu ciudad y/o comunidad
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q5" value = 0 {{ $encuesta_identidad["q5"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q5" value = 1 {{ $encuesta_identidad["q5"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q5" value = 2 {{ $encuesta_identidad["q5"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              6. Valoras a los personajes históricos y hechos históricos de tu ciudad y/o comunidad
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q6" value = 0 {{ $encuesta_identidad["q6"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q6" value = 1 {{ $encuesta_identidad["q6"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q6" value = 2 {{ $encuesta_identidad["q6"]== 2 ?  "checked" : "" }} >Siempre
+                  </label>
+              </div>
+          </div>
+
+          <hr>
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              7. Las personalidades arequipeñas intelectuales, políticos, literatos, Científicos, tecnólogos, artistas, filósofos y humanistas te motivan a ser más arequipeño.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q7" value = 0 {{ $encuesta_identidad["q7"]== 0 ?  "checked" : "" }} >Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q7" value = 1 {{ $encuesta_identidad["q7"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q7" value = 2 {{ $encuesta_identidad["q7"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+
+          <hr>
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              8. Te identificas bastante con los edificios y plazas del Centro Histórico y demás Monumentos históricos en los distintos distritos de Arequipa.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q8" value = 0 {{ $encuesta_identidad["q8"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q8" value = 1 {{ $encuesta_identidad["q8"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q8" value = 2 {{ $encuesta_identidad["q8"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              9. Las campiñas y el sillar en las construcción de edificios coloniales te hacen sentir muy arequipeño.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q9" value = 0 {{ $encuesta_identidad["q9"]== 0 ?  "checked" : "" }} >Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q9" value = 1 {{ $encuesta_identidad["q9"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q9" value = 2 {{ $encuesta_identidad["q9"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              10. Promueves el aprendizaje de dialecto o loncco arequipeño en tu barrio
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q10" value = 0 {{ $encuesta_identidad["q10"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q10" value = 1 {{ $encuesta_identidad["q10"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q10" value = 2 {{ $encuesta_identidad["q10"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              11. Te esfuerzas por aprender más el loncco y arequipeñismos de nuestra ciudad.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q11" value = 0 {{ $encuesta_identidad["q11"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q11" value = 1 {{ $encuesta_identidad["q11"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q11" value = 2 {{ $encuesta_identidad["q11"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              12. Valoras la gastronomía de la ciudad de Arequipa en tu localidad
+
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q12" value = 0 {{ $encuesta_identidad["q12"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q12" value = 1 {{ $encuesta_identidad["q12"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q12" value = 2 {{ $encuesta_identidad["q12"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+          <hr>
+
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              13. Te gusta los platos típicos (roco relleno, soltero de queso, adobo antaño, etc.).
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q13" value = 0 {{ $encuesta_identidad["q13"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q13" value = 1 {{ $encuesta_identidad["q13"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q13" value = 2 {{ $encuesta_identidad["q13"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+
+          <hr>
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              14. Participas en las fiestas y aniversarios en la ciudad de Arequipa.
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q14" value = 0 {{ $encuesta_identidad["q14"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q14" value = 1 {{ $encuesta_identidad["q14"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q14" value=2 {{ $encuesta_identidad["q14"]== 2 ?  "checked" : "" }}> Siempre
+                  </label>
+              </div>
+          </div>
+
+          <hr>
+          <div class="row">
+              <div class="col-sm-8" > 
+              <strong>
+              15. Te interesas por aprender y practicar las tradiciones y costumbres de la ciudad de Arequipa
+              </strong>
+              </div>
+
+              <div class="col-sm-4" >
+                  <label class="radio-inline">
+                      <input type="radio" name="q15" value = 0 {{ $encuesta_identidad["q15"]== 0 ?  "checked" : "" }}>Nunca
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q15" value = 1 {{ $encuesta_identidad["q15"]== 1 ?  "checked" : "" }}>Aveces
+                  </label>
+                  <label class="radio-inline">
+                      <input type="radio" name="q15" value = 2 {{ $encuesta_identidad["q15"]== 2 ?  "checked" : "" }}>Siempre
+                  </label>
+              </div>
+          </div>
+            <hr>
+            <div class="col-sm-12 text-center">   
+
+              <button type="submit" class="btn btn-success">Enviar</button>
+          </div>  
+      </form>
+        
+        
         
       </div>
       <div class="modal-footer">
@@ -425,8 +943,8 @@
 </div>
 
 <!-- Modal -->
-<div id="modalDemo" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<div id="modalDemo" class=" modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -435,7 +953,110 @@
         <h4 class="modal-title">Datos Demográficos</h4>
       </div>
       <div class="modal-body">
-        
+        <form action="/saveDemoForm" method="POST">
+          @csrf
+            
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" name="direccion" required="true" value={{$demoSurvey['q1']}} >
+            </div>
+
+            <div class="form-group">
+              <label >Lugar de Nacimiento</label>
+              <input type="text" class="form-control" name="l_nac" required="true" value={{$demoSurvey['q2']}}>
+            </div>
+
+            <div class="form-group">
+              <label >Lugar de Nacimiento del Padre</label>
+              <input type="text" class="form-control" name="l_nac_padre" value={{$demoSurvey['q3']}}>
+            </div>
+
+            <div class="form-group">
+              <label >Lugar de Nacimiento de la Madre</label>
+              <input type="text" class="form-control" name="l_nac_madre" value={{$demoSurvey['q4']}}>
+            </div>
+
+            <div class="form-group">
+              <label >Sexo</label>
+              <input type="text" class="form-control" name="sexo" required="true" value={{$demoSurvey['q5']}}>
+            </div>
+
+            <div class="form-group">
+              <label >Idioma</label>
+              <input type="text" class="form-control" name="idioma" required="true" value={{$demoSurvey['q6']}}>
+            </div>
+
+            <div class="form-group">
+              <label >¿Con que lugar de la provincia de Arequipa te sientes identificado?</label>
+              <input type="text" class="form-control" name="cuidad_identificado" required="true" value={{$demoSurvey['q7']}}>
+            </div>
+
+            <div class="form-group">
+              <label >¿Cuál es tu plato típico favorito de Arequipa?</label>
+              <input type="text" class="form-control" name="plato_tipico" required="true" value={{$demoSurvey['q8']}}>
+            </div>
+
+            <div class="form-group">
+              <label >¿Qué animal típico de Arequipa es de tu agrado?</label>
+              <input type="text" class="form-control" name="animal_tipico" required="true" value={{$demoSurvey['q9']}}>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div id="modalIdentidad" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-ku">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Datos Demográficos</h4>
+      </div>
+      <div class="modal-body">
+      <table class="table table-condensed">
+          <thead>
+          <tr>
+              <th>Funciones</th>
+              <th>N° de Preguntas</th>
+              <th>Total de Aciertos</th>
+              <th>Porcentaje</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>Función Locativa </td>
+              <td>5</td>
+              <td>0</td>
+              <td>0 %</td>
+          </tr>
+          <tr>
+              <td>Función Selectiva </td>
+              <td>6</td>
+              <td>0</td>
+              <td>0 %</td>
+          </tr>
+          <tr>
+              <td>Función Integrativa </td>
+              <td>35</td>
+              <td>0</td>
+              <td>0 %</td>
+          </tr>
+
+          </tbody>
+        </table>
+      
+        <div id='grafico_01'></div>
 
         
       </div>
@@ -446,6 +1067,90 @@
 
   </div>
 </div>
+
+
+
+<script>
+var data = [
+  {
+    x: ['Locativa', 'Selectiva', 'Función Integrativa'],
+    y: [0,0,0],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('grafico_01', data);
+</script>
+
+<script>
+var data = [
+  {
+    x: ['Correctas', 'Incorrectas'],
+    y: [0,0],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('grafico_02', data);
+</script>
+<script>
+var data = [
+  {
+    x: ['Satisfactorio','Proceso','Inicio','Previo al inicio'],
+    y: [0,0,0,0],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('grafico_03', data);
+</script>
+
+<script>
+var trace1 = {
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [0,0,0,0],
+  name: 'Dimensión de Valoración',
+  type: 'bar'
+};
+
+var trace2 = {
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [0,0,0,0],
+  name: 'Dimensión de Interes',
+  type: 'bar'
+};
+
+var trace3 = {
+  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
+  y: [0,0,0,0],
+  name: 'Dimensión de percepciones',
+  type: 'bar'
+};
+
+var data = [trace1, trace2,trace3];
+
+var layout = {barmode: 'group'};
+
+Plotly.newPlot('grafico_5', data, layout);
+</script>
+
+
+
+
+<script>
+var data = [{
+  values: [19, 26, 55,45,10],
+  labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas'],
+  type: 'pie'
+}];
+
+var layout = {
+  height: 400,
+  width: 900
+};
+
+Plotly.newPlot('grafico_6', data, layout);
+</script>
 
 
 

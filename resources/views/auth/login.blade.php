@@ -71,10 +71,14 @@
           <div class="row socialNetworks">
             <p>Encuéntranos en: </p>
             <div class="col-sm-4">
-              <i class='fab fa-google-play' style='font-size:36px'></i>
+              <a href="https://play.google.com/store/apps/details?id=com.lizard.yachay&hl=es">
+                <i class='fab fa-google-play' style='font-size:36px'></i>
+              </a>
             </div>
             <div class="col-sm-4">
-              <i class='fab fa-facebook-square' style='font-size:36px'></i>
+              <a href="https://web.facebook.com/YachayExploradores/">
+                <i class='fab fa-facebook-square' style='font-size:36px'></i>
+              </a>
             </div>
             <div class="col-sm-4">
               <i class='fab fa-youtube' style='font-size:36px'></i>

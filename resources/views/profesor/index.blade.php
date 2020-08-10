@@ -228,7 +228,6 @@
         <div id="comp" class="collapse">
           <ul class="list-group">
             <li class="list-group-item">Construye su identidad</li>
-            <li class="list-group-item">Construye interpretaciones historicas</li>
           </ul>
         </div>
       </div>
@@ -241,7 +240,6 @@
         <div id="cap" class="collapse">
           <ul class="list-group">
             <li class="list-group-item">Se valora asi mismo</li>
-            <li class="list-group-item">Interpreta criticamente fuentes diversas</li>
           </ul>
         </div>
       </div>
@@ -253,8 +251,10 @@
         <button style="margin-bottom: 20px; margin-top: 10px;" type="button" class="btn btn-success btn-lg" data-toggle="collapse" data-target="#desemp">Mostrar</button>
         <div id="desemp" class="collapse">
           <ul class="list-group">
-            <li class="list-group-item">Analiza las principales practicas culturales (Molino de Sabandia, Plaza de Armas Fundo el Fierro) de la cuidad de Arequipa para enriquecer su identidad cultural</li>
-            <li class="list-group-item">Utiliza diversas fuentes históricas sobre determinados procesos históricos  para reconocer los hechos históricos  ocurridos en (Molino de Sabandia, Plaza de Armas, Hospital Goyeneche, Fundo el Fierro).</li>
+          <li class="list-group-item">Analiza las principales practicas culturales (Molino de Sabandia, Plaza de Armas Fundo el Fierro) de la cuidad de Arequipa para enriquecer su identidad cultural</li>
+            <li class="list-group-item">Explica y valora sus caracteristicas personales, culturales y sociales relacionadas a la cuidad de Arequipa. </li>
+            <li class="list-group-item">Opina reflexivamente sobre las practicas culturales de la cuidad de Arequipa</li>
+            <li class="list-group-item">Muestra aprecio por su herencia y cultural, y la del país, sintiendose parte de el.</li>
           </ul>
         </div>
       </div>
@@ -267,15 +267,19 @@
   <strong><p>Encuentranos tambien en : </p></strong>
   <div class="row" style="display: flex; justify-content: center;">
     <div >
-      <a href="">
+      <a href="https://web.facebook.com/YachayExploradores/">
         <img src="../images/facebook.png" width="50px" style="margin: 10px;"/>
       </a>
     </div>
     <div >
-      <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
+      <a href="">
+        <img src="../images/youtube.png" width="50px" style="margin: 10px;"/>
+      </a>
     </div>
     <div >
-      <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+      <a href="https://play.google.com/store/apps/details?id=com.lizard.yachay&hl=es">
+        <img src="../images/google-play.png" width="50px" style="margin: 10px;"/>
+      </a>
     </div>
   </div>
 </footer>
@@ -411,7 +415,7 @@
 
 <!-- Modal -->
 <div id="modalAcumulado" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-ku">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -424,26 +428,24 @@
         <table class="table table-condensed">
           <thead>
           <tr>
-              <th>Escenarios</th>
+              <th>N°</th>
+              <th>Estudiante</th>
+              <th>Plaza de Armas</th>
+              <th>Fundo el fierro</th>
+              <th>Molino de Sabandia</th>
+              <th>Hospital Goyeneche</th>
               <th>Puntaje Total</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-              <td>Fundo del Fierro</td>
-              <td>{{ $scoreAcc[0] }}</td>
-          </tr>
-          <tr>
-              <td>Plaza de Armas</td>
-              <td>{{ $scoreAcc[1] }}</td>
-          </tr>
-          <tr>
-              <td>Hospital Goyeneche</td>
-              <td>{{ $scoreAcc[2] }}</td>
-          </tr>
-          <tr>
-              <td>Molino de Sabandía</td>
-              <td>{{ $scoreAcc[3] }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
 
           </tbody>
@@ -463,7 +465,6 @@
 <!-- Modal -->
 <div id="modalSeleccionado" class="modal fade" role="dialog">
   <div class="modal-dialog modal-ku">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -477,7 +478,6 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -493,6 +493,66 @@
       </div>
       <div class="modal-body">
         
+      <table class="table table-condensed">
+          <thead>
+            <tr>
+                <th></th>
+                <th>Frecuencia</th>
+                <th>Porcentaje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Satisfactorio(35-46) </td>
+                <td>0</td>
+                <td>0 %</td>
+            </tr>
+            <tr>
+                <td>Proceso(24-35)</td>
+                <td>0</td>
+                <td>0 %</td>
+            </tr>
+            <tr>
+              <td>Inicio(12-23)</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            <tr>
+              <td>Previo al inicio(0-11)</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            <tr>
+              <td>TOTAL</td>
+              <td>0</td>
+              <td>0 %</td>
+            </tr>
+            </tbody>
+          </table>
+
+        <div id='grafico_primerIntento'></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalRespuesta" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-ku">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Métrica Respuesta correcta e incorrecta</h4>
+      </div>
+      <div class="modal-body">
+          
         <table class="table table-condensed">
           <thead>
           <tr>
@@ -515,31 +575,8 @@
 
           </tbody>
         </table>
-      
+    
         <div id='grafico_1'></div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="modalRespuesta" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Métrica Respuesta correcta e incorrecta</h4>
-      </div>
-      <div class="modal-body">
-        
-
         
       </div>
       <div class="modal-footer">
@@ -795,10 +832,22 @@ var data = [{
 
 var layout = {
   height: 400,
-  width: 900
+  width: 700
 };
 
 Plotly.newPlot('grafico_5', data, layout);
+</script>
+
+<script>
+var data = [
+  {
+    x: ['Satisfactorio','Proceso','Inicio','Previo al inicio'],
+    y: [0,0,0,0],
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('grafico_primerIntento', data);
 </script>
 
 

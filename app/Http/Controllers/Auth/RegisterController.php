@@ -15,6 +15,7 @@ use App\Coin;
 use App\Star;
 use App\Item;
 use App\DemoSurvey;
+use App\Usability;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -147,6 +148,11 @@ class RegisterController extends Controller
                 $items->user_id    = $id_user[0]['id'];
                 $items->teacher_id = $data['code'];
                 $items->save();
+
+                $usabSurvey = new Usability;
+                $usabSurvey->user_id    = $id_user[0]['id'];
+                $usabSurvey->teacher_id = $data['code'];
+                $usabSurvey->save();
 
                 
         }

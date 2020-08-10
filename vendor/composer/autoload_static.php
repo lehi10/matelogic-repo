@@ -583,6 +583,7 @@ class ComposerStaticInit83c33463ce171bd5fa0f708b338b259e
         'App\\Star' => __DIR__ . '/../..' . '/app/Star.php',
         'App\\Student' => __DIR__ . '/../..' . '/app/Student.php',
         'App\\Teacher' => __DIR__ . '/../..' . '/app/Teacher.php',
+        'App\\Usability' => __DIR__ . '/../..' . '/app/Usability.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Valoration' => __DIR__ . '/../..' . '/app/Valoration.php',
         'Balping\\JsonRaw\\Encoder' => __DIR__ . '/..' . '/balping/json-raw-encoder/src/Encoder.php',
