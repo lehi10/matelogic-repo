@@ -589,7 +589,7 @@
 
 <!-- Modal -->
 <div id="modalEncuestaUsabildiad" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-ku">
+  <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -602,7 +602,6 @@
         <table class="table table-condensed">
           <thead>
           <tr>
-              <th>N°</th>
               <th></th>
               <th>Cantidad</th>
               <th>Porcentaje</th>
