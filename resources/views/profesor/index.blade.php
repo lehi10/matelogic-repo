@@ -598,6 +598,51 @@
         <h4 class="modal-title">Encuesta de Usabilidad</h4>
       </div>
       <div class="modal-body">
+
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+              <th>N°</th>
+              <th>Estudiante</th>
+              <th>Plaza de Armas</th>
+              <th>Fundo el fierro</th>
+              <th>Molino de Sabandia</th>
+              <th>Hospital Goyeneche</th>
+              <th>Puntaje Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Totalmente Desacuerdo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>En Desacuerdo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Ni en acuerdo, ni en desacuerdo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>De acuerdo</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Totalmente de Acuerdo</td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
         
 
         
