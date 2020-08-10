@@ -14,12 +14,7 @@
 Auth::routes();
 
 Route::get('/', function(){
-    return view('index');
-});
-
-
-Route::get('/',function(){
-    return view('index');
+    return redirect("/login");
 });
 
 Route::get('/newIndex',function(){ return view('newViews/index');});
