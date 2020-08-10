@@ -603,12 +603,9 @@
           <thead>
           <tr>
               <th>N°</th>
-              <th>Estudiante</th>
-              <th>Plaza de Armas</th>
-              <th>Fundo el fierro</th>
-              <th>Molino de Sabandia</th>
-              <th>Hospital Goyeneche</th>
-              <th>Puntaje Total</th>
+              <th></th>
+              <th>Cantidad</th>
+              <th>Porcentaje</th>
           </tr>
           </thead>
           <tbody>
@@ -643,8 +640,6 @@
           </tr>
           </tbody>
         </table>
-        
-
         
       </div>
       <div class="modal-footer">
