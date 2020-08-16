@@ -158,11 +158,11 @@ class EndpointController extends Controller
         $obj11 = intval($itemsArray[11]);
         $obj12 = intval($itemsArray[12]);
         $obj13 = intval($itemsArray[13]);
-        $obj15 = intval($itemsArray[14]);
-        $obj16 = intval($itemsArray[15]);
-        $obj17 = intval($itemsArray[16]);
-        $obj18 = intval($itemsArray[17]);
-        $obj19 = intval($itemsArray[18]);
+        $obj14 = intval($itemsArray[14]);
+        $obj15 = intval($itemsArray[15]);
+        $obj16 = intval($itemsArray[16]);
+        $obj17 = intval($itemsArray[17]);
+        $obj18 = intval($itemsArray[18]);
         $obj19 = intval($itemsArray[19]);
         $obj20 = intval($itemsArray[20]);
         $obj21 = intval($itemsArray[21]);
