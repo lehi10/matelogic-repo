@@ -96,6 +96,7 @@
 </nav>
 
 
+
 <div class="jumbotron container-fluid" >
   <h1 class="shadow">Yachay Exploradores</h1>      
   <p><strong>Docente:</strong> {{ Auth::user()->name }} </p>
@@ -309,16 +310,16 @@
           <tbody>
             <tr>
               <td><img width="15" src ="/images/estrella.png"></img></td>
-              <td></td>
-              <td></td>
+              <td>{{$stars['s1']*100/$stars['total']}}</td>
+              <td>{{$stars['s1']}}</td>
             </tr>
             <tr>
               <td>
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td></td>
-              <td></td>
+              <td>{{$stars['s2']*100/$stars['total']}}</td>
+              <td>{{$stars['s2']}}</td>
             </tr>
             <tr>
               <td>
@@ -326,18 +327,8 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-              </td>
-              <td></td>
-              <td></td>
+              <td>{{$stars['s3']*100/$stars['total']}}</td>
+              <td>{{$stars['s3']}}</td>
             </tr>
             <tr>
               <td>
@@ -345,10 +336,32 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td>{{$stars['s4']*100/$stars['total']}}</td>
+              <td>{{$stars['s4']}}</td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td></td>
-              <td></td>
+              <td>{{$stars['s5']*100/$stars['total']}}</td>
+              <td>{{$stars['s5']}}</td>
+            </tr>
+            <tr>
+              <td>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+                <img width="15" src ="/images/estrella.png"></img>
+              </td>
+              <td>{{$stars['s6']*100/$stars['total']}}</td>
+              <td>{{$stars['s6']}}</td>
             </tr>
             
           </tbody>
@@ -381,29 +394,29 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Emociones</th>
-            <th>Porcentaje de estudiantes</th>
-            <th>Total </th>
+            <td width="200px"><center>Emociones</center></th>
+            <td width="200px"><center>Porcentaje</center></th>
+            <td width="200px"><center>Total </center></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><center>FELIZ <br><img width="50" src ="/images/feliz.png"></img>   </center></td>
-            <td></td>
-            <td></td>
+              <td><center>FELIZ <br><img width="50" src ="/images/feliz.png"></img></center></td>
+              <td width="200px"><center>{{$emotions['pc_feliz']}}</center></td>
+              <td width="200px"><center>{{$emotions['feliz']}}</center></td>
           </tr>
           <tr>
-            <td><center>ABURRIDO <br><img width="50" src ="/images/aburrido.png"></img>   </center></td><td></td>
-            <td></td>
+            <td><center>ABURRIDO <br><img width="50" src ="/images/aburrido.png"></img></center></td>
+            <td width="200px"><center>{{$emotions['pc_aburrido']}}</center></td>
+            <td width="200px"><center>{{$emotions['aburrido']}}</center></td>
           </tr>
           <tr>
-            <td><center>TRISTE <br><img width="50" src ="/images/triste.png"></img>   </center></td><td></td>
-            <td></td>
+            <td><center>TRISTE <br><img width="50" src ="/images/triste.png"></img></center></td>
+            <td width="200px"><center>{{$emotions['pc_triste']}}</center></td>
+            <td width="200px"><center>{{$emotions['triste']}}</center></td>
           </tr>
         </tbody>
       </table>
-
-        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -428,7 +441,6 @@
         <table class="table table-condensed">
           <thead>
           <tr>
-              <th>N°</th>
               <th>Estudiante</th>
               <th>Plaza de Armas</th>
               <th>Fundo el fierro</th>
@@ -438,16 +450,16 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-
+          @foreach($coins as $row)
+            <tr>
+              <td>{{$row['nombre']}}</td>
+              <td>{{$row['plaza']}}</td>
+              <td>{{$row['fundo']}}</td>
+              <td>{{$row['molino']}}</td>
+              <td>{{$row['hospital']}}</td>
+              <td>{{$row['total']}}</td>
+            </tr>
+          @endforeach
           </tbody>
         </table>
 
@@ -864,8 +876,8 @@ Plotly.newPlot('grafico_4', data, layout);
 
 <script>
 var data = [{
-  values: [19, 26, 55,45,10],
-  labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas'],
+  values: [{{$stars["s1"]}}, {{$stars["s2"]}},{{$stars["s2"]}},{{$stars["s4"]}}, {{$stars["s5"]}}, {{$stars["s6"]}}],
+  labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas', '6 Estrellas'],
   type: 'pie'
 }];
 

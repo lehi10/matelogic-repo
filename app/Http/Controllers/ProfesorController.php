@@ -6,7 +6,10 @@ use  App\Student;
 use  App\Interest;
 use  App\Stage;
 use  App\Valoration;
+use  App\Star;
+use  App\Coin;
 use  App\IndentityQuestions;
+use DB;
 use Auth;
 use Charts;
 use Illuminate\Http\Request;
@@ -21,12 +24,90 @@ class ProfesorController extends Controller
        
     }
 
+    public function starsMetric(){
+      $datos = Star::where('teacher_id',Auth::user()->id)->get();
+      $array_res = [];
+
+      $array_stars = [0,0,0,0,0,0,0];
+
+      for ($i = 0 ; $i < count($datos) ; $i++ )
+      {
+        $estrellas = 0 ;
+        $respondidos  = ($datos[$i]->plaza > 0 ? 1 : 0) + ($datos[$i]->fundo > 0 ? 1 : 0) + ($datos[$i]->molino > 0 ? 1 : 0)  + ($datos[$i]->hospital > 0 ? 1: 0);
+        
+        $array_stars[$datos[$i]->plaza%6] ++;
+        $array_stars[$datos[$i]->molino%6] ++;
+        $array_stars[$datos[$i]->fundo%6] ++;
+        $array_stars[$datos[$i]->hospital%6] ++;
+      }
+
+      // En posicion 0 no se cuenta
+
+      $total = $array_stars[1]+$array_stars[2]+$array_stars[3]+$array_stars[4]+$array_stars[5]+$array_stars[6]; 
+
+      return array("s1"=> $array_stars[1], "s2"=>$array_stars[2], "s3"=>$array_stars[3], "s4"=>$array_stars[4], "s5"=>$array_stars[5], "s6"=>$array_stars[6], "total"=>$total);
+    }
+
+    public function emotionsMetric(){
+      $datos = Star::where('teacher_id',Auth::user()->id)->get();
+      $array_res = [];
+      for ($i = 0 ; $i < count($datos) ; $i++ )
+      {
+        $emotion = 0 ;
+        $respondidos  = ($datos[$i]->plaza > 0 ? 1 : 0) + ($datos[$i]->fundo > 0 ? 1 : 0) + ($datos[$i]->molino > 0 ? 1 : 0)  + ($datos[$i]->hospital > 0 ? 1: 0);
+        if($respondidos != 0)
+          $emotion = ($datos[$i]->plaza + $datos[$i]->fundo + $datos[$i]->molino + $datos[$i]->hospital)/$respondidos;
+        array_push($array_res, $emotion);
+      }
+
+      $aburrido = 0;
+      $feliz = 0;
+      $triste = 0;
+
+      for ($i = 0 ; $i < count($array_res) ; $i++ ) {
+        if($array_res[$i] < 2)
+          $triste ++;
+        else if($array_res[$i] < 3.5)
+            $aburrido++;
+        else
+          $feliz ++;
+      }
+
+      $totalEmociones = count($array_res);
+      $pc_feliz=($feliz*100)/$totalEmociones;
+      $pc_aburrido=($aburrido*100)/$totalEmociones;
+      $pc_triste=($triste*100)/$totalEmociones;
+
+      $obj_res = array( "emotions"=> $array_res, "feliz"=>$feliz, "triste"=>$triste, "aburrido"=>$aburrido, 
+                                                  "pc_feliz"=> $pc_feliz,"pc_triste"=>$pc_triste, "pc_aburrido"=>$pc_aburrido );
+      return $obj_res;
+    }
+
+    public function coinsMetric(){
+      $data = DB::table('coins')->join('users','users.id','=','coins.user_id')->get();
+      
+      $datos = collect($data)->map(function($x){ return (array) $x; })->toArray(); 
+
+      $responseArray = [];
+      foreach($datos as $row){
+        $total = $row["molino"] + $row["plaza"] + $row["hospital"]+ $row["fundo"];
+        array_push($responseArray,array("nombre"=>$row["name"], "plaza"=>$row["plaza"], "molino"=>$row["molino"], "hospital"=>$row["hospital"],"fundo"=>$row["fundo"], "total"=>$total));
+      }
+      
+      return $responseArray;
+    }
+
+    public function storeMetric(){
+
+      return 1;
+    }
     
     public function show()
     {
         
         if(Auth::user()->role != 1)
-            abort(403,"Usuario no autorizado.");
+          abort(403,"Usuario no autorizado.");
+        
         
         $datos = Student::where('teacher_id',Auth::user()->id)->get();
 
@@ -38,7 +119,6 @@ class ProfesorController extends Controller
             $counters[2]+=$row->siempre;            
         }
 
-
         $questions = IndentityQuestions::where('teacher_id',Auth::user()->id)->get();
 
         $selection0intents=0;        
@@ -48,11 +128,8 @@ class ProfesorController extends Controller
         $selection0Moreintents=0;        
         $locationsMoreintents=0;        
         $integrativeMoreintents=0;
-        
-        
 
         foreach ($questions as $row) {
-
 
             $row->fs1 === 1 ? $selection0intents ++ : ( $row->fs1 > 1 ? $selection0Moreintents++: null ) ;
             $row->fs2 === 1 ? $selection0intents ++ : ( $row->fs1 > 1 ? $selection0Moreintents++: null) ;
@@ -109,8 +186,6 @@ class ProfesorController extends Controller
                
         }
 
-
-
         $oneIntents = [$selection0intents,$locations0intents,$integrative0intents];
         $moreIntents = [$selection0Moreintents, $locationsMoreintents, $integrativeMoreintents];
         $totalRows = count($questions);
@@ -165,14 +240,23 @@ class ProfesorController extends Controller
         $metricsObjSelected = [$f1,$f2,$f3,$p1,$p2,$p3,$h1,$h2,$h3,$m1,$m2,$m3];
         $scoreAcc = [$fundoFierro, $plazaArmas, $hospital, $molino];
 
-        
+        $stars = $this->starsMetric();
+        $emotions = $this->emotionsMetric();
+        $coins =  $this->coinsMetric();
+
         return view('profesor.index',[
             'counters'=>$counters, 
             'oneIntents'=>$oneIntents, 
             'moreIntents'=>$moreIntents, 
             'totalRows'=>$totalRows,
             'metricsObjSelected'=>$metricsObjSelected,
-            'scoreAcc'=>$scoreAcc]
+            'scoreAcc'=>$scoreAcc,
+            'stars'=> $stars,
+            'emotions'=>$emotions,
+            'coins'=>$coins]
         );
     }
+
+
+    
 }
