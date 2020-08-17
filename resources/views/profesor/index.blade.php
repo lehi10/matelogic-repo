@@ -96,7 +96,6 @@
 </nav>
 
 
-
 <div class="jumbotron container-fluid" >
   <h1 class="shadow">Yachay Exploradores</h1>      
   <p><strong>Docente:</strong> {{ Auth::user()->name }} </p>
@@ -504,7 +503,6 @@
         <h4 class="modal-title">Métrica nivel de aprendizaje al primer intento</h4>
       </div>
       <div class="modal-body">
-        
       <table class="table table-condensed">
           <thead>
             <tr>
@@ -515,32 +513,36 @@
             </thead>
             <tbody>
             <tr>
+,,,
+
                 <td>Satisfactorio(35-46) </td>
-                <td>0</td>
-                <td>0 %</td>
+                <td>{{$firstInten["satisfactorio"]}}</td>
+                <td>{{$firstInten["satisfactorio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
                 <td>Proceso(24-35)</td>
-                <td>0</td>
-                <td>0 %</td>
+                <td>{{$firstInten["proceso"]}}</td>
+                <td>{{$firstInten["proceso"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>Inicio(12-23)</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$firstInten["inicio"]}}</td>
+              <td>{{$firstInten["inicio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>Previo al inicio(0-11)</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$firstInten["previoInicio"]}}</td>
+              <td>{{$firstInten["previoInicio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>TOTAL</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$firstInten["satisfactorio"] + $firstInten["proceso"] + $firstInten["inicio"]+$firstInten["previoInicio"]}}</td>
+              <td>100 %</td>
             </tr>
             </tbody>
           </table>
+        
+      
 
         <div id='grafico_primerIntento'></div>
         
@@ -622,32 +624,32 @@
           <tbody>
           <tr>
             <td>Totalmente Desacuerdo</td>
-            <td></td>
-            <td></td>
+            <td>{{$usabilityMetric['totaldesacuerdo']}}</td>
+            <td>{{round($usabilityMetric['totaldesacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>En Desacuerdo</td>
-            <td></td>
-            <td></td>
+            <td>{{$usabilityMetric['desacuerdo']}}</td>
+            <td>{{round($usabilityMetric['desacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>Ni en acuerdo, ni en desacuerdo</td>
-            <td></td>
-            <td></td>
+            <td>{{$usabilityMetric['neutro']}}</td>
+            <td>{{round($usabilityMetric['neutro']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>De acuerdo</td>
-            <td></td>
-            <td></td>
+            <td>{{$usabilityMetric['deacuerdo']}}</td>
+            <td>{{round($usabilityMetric['deacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>Totalmente de Acuerdo</td>
-            <td></td>
-            <td></td>
+            <td>{{$usabilityMetric['totaldeacuerdo']}}</td>
+            <td>{{round($usabilityMetric['totaldeacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
           </tbody>
         </table>
@@ -833,39 +835,17 @@ Plotly.newPlot('grafico_1', data);
 
 <script>
 var trace1 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [{{ $metricsObjSelected[0] }},
-      {{ $metricsObjSelected[3] }},
-      {{ $metricsObjSelected[6] }},
-      {{ $metricsObjSelected[9] }}
+  x: ['Valoración','Interes', 'Percepción'],
+  y: [{{ $selectedItems['valoracion'] }},
+      {{ $selectedItems['interes'] }},
+      {{ $selectedItems['percepcion'] }},
    ],
   name: 'Dimensión de Valoración',
   type: 'bar'
 };
 
-var trace2 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [{{ $metricsObjSelected[1] }},
-      {{ $metricsObjSelected[4] }},
-      {{ $metricsObjSelected[7] }},
-      {{ $metricsObjSelected[10] }}
-   ],
-  name: 'Dimensión de Interes',
-  type: 'bar'
-};
 
-var trace3 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [{{ $metricsObjSelected[2] }},
-      {{ $metricsObjSelected[5] }},
-      {{ $metricsObjSelected[8] }},
-      {{ $metricsObjSelected[11] }}
-   ],
-  name: 'Dimensión de percepciones',
-  type: 'bar'
-};
-
-var data = [trace1, trace2,trace3];
+var data = [trace1];
 
 var layout = {barmode: 'group'};
 
@@ -893,7 +873,7 @@ Plotly.newPlot('grafico_5', data, layout);
 var data = [
   {
     x: ['Satisfactorio','Proceso','Inicio','Previo al inicio'],
-    y: [0,0,0,0],
+    y: [{{$firstInten["satisfactorio"]}},{{$firstInten["proceso"]}},{{$firstInten["inicio"]}},{{$firstInten["previoInicio"]}}],
     type: 'bar'
   }
 ];

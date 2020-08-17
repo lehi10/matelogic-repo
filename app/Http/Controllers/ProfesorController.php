@@ -9,6 +9,8 @@ use  App\Valoration;
 use  App\Star;
 use  App\Coin;
 use  App\IndentityQuestions;
+use App\Usability;
+use App\Item;
 use DB;
 use Auth;
 use Charts;
@@ -99,11 +101,103 @@ class ProfesorController extends Controller
 
     public function storeMetric(){
 
-      return 1;
+      $datos = Item::where('teacher_id',Auth::user()->id)->get();
+
+      $valoracion = 0;
+      $percepcion = 0;
+      $interes = 0;
+
+      foreach($datos as $row){
+        $valoracion = $valoracion+ $row['obj1']+$row['obj2']+$row['obj3']+$row['obj4']+$row['obj5']+$row['obj6']+$row['obj7']+$row['obj8']+$row['obj9']+$row['obj10'];
+        $interes = $interes+ $row['obj11']+$row['obj12']+$row['obj13']+$row['obj14']+$row['obj15']+$row['obj16']+$row['obj17']+$row['obj18']+$row['obj19']+$row['obj20']+$row['obj21']+$row['obj22'];
+        $percepcion = $percepcion+ $row['obj23']+$row['obj24'];
+        
+      }     
+      
+
+      return Array("valoracion"=>$valoracion,"percepcion"=>$percepcion,"interes"=>$interes);
+    }
+
+    public function usabilityMetric(){
+      $datos = Usability::where('teacher_id',Auth::user()->id)->get();
+
+      $totaldesacuerdo = 0;
+      $desacuerdo = 0;
+      $neutro = 0;
+      $deacuerdo = 0;
+      $totaldeacuerdo = 0;
+
+      
+
+      foreach($datos as $row){
+          for($i = 1 ; $i<=15;$i++){
+            if($row["q$i"] == 0)
+              $totaldesacuerdo++;
+            else  if ($row["q$i"] == 1){
+              $desacuerdo ++;
+            }
+            else if($row["q$i"]==2){
+              $neutro++;
+            }
+            else if($row["q$i"]==3){
+              $deacuerdo++;
+            }
+            else if($row["q$i"]==4){
+              $totaldeacuerdo++;
+            }
+          }
+      }
+      $total = $totaldesacuerdo +  $desacuerdo + $neutro + $deacuerdo + $totaldeacuerdo;
+      
+      return Array("totaldesacuerdo"=>$totaldesacuerdo,"desacuerdo"=>$desacuerdo,"neutro"=>$neutro,"deacuerdo"=>$deacuerdo,"totaldeacuerdo"=>$totaldeacuerdo, "total"=>$total);
+    }
+
+    public function firstIntent(){
+      $datos = IndentityQuestions::where('teacher_id',Auth::user()->id)->get();
+
+      $satisfactorio = 0;
+      $proceso = 0;
+      $inicio = 0 ;
+      $previoInicio = 0;
+
+      foreach($datos as $row){
+        $fs = 0;
+        $fl = 0;
+        $fi = 0;
+
+        for($i =1; $i<=6 ;$i++){
+          $fs=$row["fs$i"]== 1 ? $fs + 1 : 0; 
+        }
+        for($i =1; $i<=5 ;$i++){
+          $fl=$row["fl$i"]== 1 ? $fl + 1 : 0; 
+        }
+        for($i =1; $i<=36 ;$i++){
+          $fi=$row["fi$i"]== 1 ? $fi + 1 : 0; 
+        }
+        $total = $fs+ $fl + $fi;
+
+        if($total <= 11){
+          $previoInicio ++;
+        }
+        else if($total <= 23) {
+          $inicio++;
+        }
+        else if($total <= 35){
+          $proceso++;
+        }
+        else if($total > 35){
+          $satisfactorio++;
+
+        }
+      }
+      $total = count($datos);
+      return Array("satisfactorio"=> $satisfactorio, "proceso"=>$proceso, "inicio"=>$inicio, "previoInicio"=>$previoInicio,"total"=>$total);
     }
     
     public function show()
     {
+        
+      
         
         if(Auth::user()->role != 1)
           abort(403,"Usuario no autorizado.");
@@ -243,6 +337,9 @@ class ProfesorController extends Controller
         $stars = $this->starsMetric();
         $emotions = $this->emotionsMetric();
         $coins =  $this->coinsMetric();
+        $selectedItems = $this->storeMetric();
+        $firstIntent = $this->firstIntent();
+        $usabilityMetric = $this->usabilityMetric();
 
         return view('profesor.index',[
             'counters'=>$counters, 
@@ -253,7 +350,10 @@ class ProfesorController extends Controller
             'scoreAcc'=>$scoreAcc,
             'stars'=> $stars,
             'emotions'=>$emotions,
-            'coins'=>$coins]
+            'coins'=>$coins,
+            'selectedItems'=>$selectedItems,
+            'firstInten'=>$firstIntent,
+            'usabilityMetric'=>$usabilityMetric]
         );
     }
 

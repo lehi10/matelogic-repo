@@ -18,21 +18,21 @@ class CreateUsabilitiesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('teacher_id'); 
 
-            $table->tinyInteger('q1')->default(0);
-            $table->tinyInteger('q2')->default(0);
-            $table->tinyInteger('q3')->default(0);
-            $table->tinyInteger('q4')->default(0);
-            $table->tinyInteger('q5')->default(0);
-            $table->tinyInteger('q6')->default(0);
-            $table->tinyInteger('q7')->default(0);
-            $table->tinyInteger('q8')->default(0);
-            $table->tinyInteger('q9')->default(0);
-            $table->tinyInteger('q10')->default(0);
-            $table->tinyInteger('q11')->default(0);
-            $table->tinyInteger('q12')->default(0);
-            $table->tinyInteger('q13')->default(0);
-            $table->tinyInteger('q14')->default(0);
-            $table->tinyInteger('q15')->default(0);
+            $table->tinyInteger('q1')->default(-1);
+            $table->tinyInteger('q2')->default(-1);
+            $table->tinyInteger('q3')->default(-1);
+            $table->tinyInteger('q4')->default(-1);
+            $table->tinyInteger('q5')->default(-1);
+            $table->tinyInteger('q6')->default(-1);
+            $table->tinyInteger('q7')->default(-1);
+            $table->tinyInteger('q8')->default(-1);
+            $table->tinyInteger('q9')->default(-1);
+            $table->tinyInteger('q10')->default(-1);
+            $table->tinyInteger('q11')->default(-1);
+            $table->tinyInteger('q12')->default(-1);
+            $table->tinyInteger('q13')->default(-1);
+            $table->tinyInteger('q14')->default(-1);
+            $table->tinyInteger('q15')->default(-1);
             
             $table->foreign('teacher_id')->references('id')->on('users');
             $table->foreign('user_id')->references('id')->on('users');
