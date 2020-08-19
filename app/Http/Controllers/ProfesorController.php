@@ -87,7 +87,7 @@ class ProfesorController extends Controller
     }
 
     public function coinsMetric(){
-      $data = DB::table('coins')->join('users','users.id','=','coins.user_id')->get();
+      $data = DB::table('coins')->join('users','users.id','=','coins.user_id')->where('teacher_id',Auth::user()->id)->get();
       
       $datos = collect($data)->map(function($x){ return (array) $x; })->toArray(); 
 
