@@ -57,6 +57,7 @@ class ProfesorController extends Controller
       {
         $emotion = 0 ;
         $respondidos  = ($datos[$i]->plaza > 0 ? 1 : 0) + ($datos[$i]->fundo > 0 ? 1 : 0) + ($datos[$i]->molino > 0 ? 1 : 0)  + ($datos[$i]->hospital > 0 ? 1: 0);
+
         if($respondidos != 0)
           $emotion = ($datos[$i]->plaza + $datos[$i]->fundo + $datos[$i]->molino + $datos[$i]->hospital)/$respondidos;
         array_push($array_res, $emotion);
@@ -76,9 +77,9 @@ class ProfesorController extends Controller
       }
 
       $totalEmociones = count($array_res);
-      $pc_feliz=($feliz*100)/$totalEmociones;
-      $pc_aburrido=($aburrido*100)/$totalEmociones;
-      $pc_triste=($triste*100)/$totalEmociones;
+      $pc_feliz=$totalEmociones ==0 ? 0 : ($feliz*100)/$totalEmociones;
+      $pc_aburrido=$totalEmociones ==0 ? 0 : ($aburrido*100)/$totalEmociones;
+      $pc_triste=$totalEmociones ==0 ? 0 : (($triste*100)/$totalEmociones);
 
       $obj_res = array( "emotions"=> $array_res, "feliz"=>$feliz, "triste"=>$triste, "aburrido"=>$aburrido, 
                                                   "pc_feliz"=> $pc_feliz,"pc_triste"=>$pc_triste, "pc_aburrido"=>$pc_aburrido );
