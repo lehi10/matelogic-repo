@@ -309,7 +309,7 @@
           <tbody>
             <tr>
               <td><img width="15" src ="/images/estrella.png"></img></td>
-              <td>{{$stars['s1']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 : $stars['s1']*100/$stars['total']}}</td>
               <td>{{$stars['s1']}}</td>
             </tr>
             <tr>
@@ -317,7 +317,7 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td>{{$stars['s2']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 : $stars['s2']*100/$stars['total']}}</td>
               <td>{{$stars['s2']}}</td>
             </tr>
             <tr>
@@ -326,7 +326,7 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td>{{$stars['s3']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 :  $stars['s3']*100/$stars['total']}}</td>
               <td>{{$stars['s3']}}</td>
             </tr>
             <tr>
@@ -336,7 +336,7 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td>{{$stars['s4']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 : $stars['s4']*100/$stars['total']}}</td>
               <td>{{$stars['s4']}}</td>
             </tr>
             <tr>
@@ -347,7 +347,7 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td>{{$stars['s5']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 : $stars['s5']*100/$stars['total']}}</td>
               <td>{{$stars['s5']}}</td>
             </tr>
             <tr>
@@ -359,7 +359,7 @@
                 <img width="15" src ="/images/estrella.png"></img>
                 <img width="15" src ="/images/estrella.png"></img>
               </td>
-              <td>{{$stars['s6']*100/$stars['total']}}</td>
+              <td>{{$stars['total'] == 0 ? 0 : $stars['s6']*100/$stars['total']}}</td>
               <td>{{$stars['s6']}}</td>
             </tr>
             
@@ -517,22 +517,22 @@
 
                 <td>Satisfactorio(35-46) </td>
                 <td>{{$firstInten["satisfactorio"]}}</td>
-                <td>{{$firstInten["satisfactorio"]*100/$firstInten["total"]}}%</td>
+                <td>{{$firstInten["total"] == 0 ? 0 : $firstInten["satisfactorio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
                 <td>Proceso(24-35)</td>
                 <td>{{$firstInten["proceso"]}}</td>
-                <td>{{$firstInten["proceso"]*100/$firstInten["total"]}}%</td>
+                <td>{{$firstInten["total"] == 0 ? 0 : $firstInten["proceso"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>Inicio(12-23)</td>
               <td>{{$firstInten["inicio"]}}</td>
-              <td>{{$firstInten["inicio"]*100/$firstInten["total"]}}%</td>
+              <td>{{$firstInten["total"] == 0 ? 0 : $firstInten["inicio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>Previo al inicio(0-11)</td>
               <td>{{$firstInten["previoInicio"]}}</td>
-              <td>{{$firstInten["previoInicio"]*100/$firstInten["total"]}}%</td>
+              <td>{{$firstInten["total"] == 0 ? 0 : $firstInten["previoInicio"]*100/$firstInten["total"]}}%</td>
             </tr>
             <tr>
               <td>TOTAL</td>
@@ -625,31 +625,31 @@
           <tr>
             <td>Totalmente Desacuerdo</td>
             <td>{{$usabilityMetric['totaldesacuerdo']}}</td>
-            <td>{{round($usabilityMetric['totaldesacuerdo']*100/$usabilityMetric['total'])}}%</td>
+            <td>{{ $usabilityMetric['total'] == 0 ?  0:round($usabilityMetric['totaldesacuerdo']*100/ $usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>En Desacuerdo</td>
             <td>{{$usabilityMetric['desacuerdo']}}</td>
-            <td>{{round($usabilityMetric['desacuerdo']*100/$usabilityMetric['total'])}}%</td>
+            <td>{{$usabilityMetric['total'] == 0 ?  0: round($usabilityMetric['desacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>Ni en acuerdo, ni en desacuerdo</td>
             <td>{{$usabilityMetric['neutro']}}</td>
-            <td>{{round($usabilityMetric['neutro']*100/$usabilityMetric['total'])}}%</td>
+            <td>{{$usabilityMetric['total'] == 0 ?  0: round($usabilityMetric['neutro']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>De acuerdo</td>
             <td>{{$usabilityMetric['deacuerdo']}}</td>
-            <td>{{round($usabilityMetric['deacuerdo']*100/$usabilityMetric['total'])}}%</td>
+            <td>{{$usabilityMetric['total'] == 0 ?  0: round($usabilityMetric['deacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
 
           <tr>
             <td>Totalmente de Acuerdo</td>
             <td>{{$usabilityMetric['totaldeacuerdo']}}</td>
-            <td>{{round($usabilityMetric['totaldeacuerdo']*100/$usabilityMetric['total'])}}%</td>
+            <td>{{$usabilityMetric['total'] == 0 ?  0: round($usabilityMetric['totaldeacuerdo']*100/$usabilityMetric['total'])}}%</td>
           </tr>
           </tbody>
         </table>
