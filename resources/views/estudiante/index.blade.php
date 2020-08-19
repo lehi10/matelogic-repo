@@ -98,7 +98,8 @@
 
 <div class="jumbotron container-fluid" >
   <h1>Yachay Exploradores</h1>      
-  <p><strong>Estudiante:</strong> Nombre del estudiante </p>
+  <p><strong>Estudiante: </strong> {{$nameStudent}} </p>
+  <p><strong>Código de Clase: </strong> {{$classromID}} </p>
 </div>
 
 
@@ -306,55 +307,47 @@
       <table class="table">
         <thead>
             <tr>
-              <th>Valoración</th>
-              <th>Porcentaje</th>
-              <th>Total </th>
+              <th>Escenario</th>
+              <th>Estrellas dadas por el estudiante</th>
+              
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Plaza de Armas</td>
               <td><img width="15" src ="/images/estrella.png"></img></td>
-              <td></td>
-              <td></td>
+              
+              
             </tr>
             <tr>
+            <td>Fundo el fierro</td>
               <td>
+              @for($i = 0; $i < $stars['fundo'] ;$i++)
                 <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
+              @endfor
+                
+                
               </td>
-              <td></td>
-              <td></td>
+              
             </tr>
             <tr>
+              <td>Hospital Goyeneche</td>
               <td>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
+                @for($i = 0; $i < $stars['hospital'] ;$i++)
+                  <img width="15" src ="/images/estrella.png"></img>
+                @endfor
               </td>
-              <td></td>
-              <td></td>
+              
             </tr>
             <tr>
+              <td>Molino de Sabandia</td>
               <td>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
+                @for($i = 0; $i < $stars['molino'] ;$i++)
+                  <img width="15" src ="/images/estrella.png"></img>
+                @endfor
               </td>
-              <td></td>
-              <td></td>
             </tr>
-            <tr>
-              <td>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-                <img width="15" src ="/images/estrella.png"></img>
-              </td>
-              <td></td>
-              <td></td>
-            </tr>
+
             
           </tbody>
         </table>
@@ -386,32 +379,70 @@
         <table class="table">
           <thead>
             <tr>
+              <th>Escenario</th>
               <th>Emociones</th>
-              <th>Porcentaje de estudiantes</th>
-              <th>Total </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><center>FELIZ <br><img width="50" src ="/images/feliz.png"></img>   </center></td>
-              <td></td>
-              <td></td>
+              <td>Plaza de Armas</td>
+              <td>
+              @if ($stars['plaza'] == 0)
+                  No se calificó
+              @elseif ($stars['plaza'] <= 2)
+                <img width="50" src ="/images/triste.png" />
+              @elseif ($stars['plaza'] <= 4)
+                <img width="50" src ="/images/aburrido.png" />
+              @else
+                <img width="50" src ="/images/feliz.png" />
+              @endif
+              </td>              
             </tr>
             <tr>
-              <td><center>ABURRIDO <br><img width="50" src ="/images/aburrido.png"></img>   </center></td><td></td>
-              <td></td>
+            <td>Fundo el fierro</td>
+              <td>
+                @if ($stars['fundo'] == 0)
+                  No se calificó
+                @elseif ($stars['fundo'] <= 2)
+                  <img width="50" src ="/images/triste.png" />
+                @elseif ($stars['fundo'] <= 4)
+                  <img width="50" src ="/images/aburrido.png" />
+                @else
+                  <img width="50" src ="/images/feliz.png" />
+                @endif        
+              </td>
+              
             </tr>
             <tr>
-              <td><center>TRISTE <br><img width="50" src ="/images/triste.png"></img>   </center></td><td></td>
-              <td></td>
+              <td>Hospital Goyeneche</td>
+              <td>
+                @if ($stars['hospital'] == 0)
+                  No se calificó
+                @elseif ($stars['hospital'] <= 2)
+                  <img width="50" src ="/images/triste.png" />
+                @elseif (count($stars['plaza']) <= 4)
+                  <img width="50" src ="/images/aburrido.png" />
+                @else
+                  <img width="50" src ="/images/feliz.png" />
+                @endif
+              </td>
+              
             </tr>
-          </tbody>
-        </table>
-
-        
-        
-
-        
+            <tr>
+              <td>Molino de Sabandia</td>
+              <td>
+                @if ($stars['molino'] == 0)
+                  No se calificó
+                @elseif ($stars['molino'] <= 2)
+                  <img width="50" src ="/images/triste.png" />
+                @elseif ($stars['plaza'] <= 4)
+                  <img width="50" src ="/images/aburrido.png" />
+                @else
+                  <img width="50" src ="/images/feliz.png" />
+                @endif
+              </td>
+            </tr>
+        </table>        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -443,19 +474,19 @@
             <tbody>
             <tr>
                 <td>Fundo del Fierro</td>
-                <td>0</td>
+                <td>{{$coins['fundo']}}</td>
             </tr>
             <tr>
                 <td>Plaza de Armas</td>
-                <td>0</td>
+                <td>{{$coins["plaza"]}}</td>
             </tr>
             <tr>
                 <td>Hospital Goyeneche</td>
-                <td>0</td>
+                <td>{{$coins['hospital']}}</td>
             </tr>
             <tr>
                 <td>Molino de Sabandía</td>
-                <td>0</td>
+                <td>{{$coins['molino']}}</td>
             </tr>
 
             </tbody>
@@ -509,40 +540,28 @@
           <thead>
             <tr>
                 <th></th>
-                <th>Frecuencia</th>
-                <th>Porcentaje</th>
+                <th>Nivel de aprendizaje</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>Satisfactorio(35-46) </td>
-                <td>0</td>
-                <td>0 %</td>
+                <td>Satisfactorio(36-46) </td>
+                <td>{{$firstIntentMetric['total'] >= 36 ? "Usted se encuentra en este nivel" : ""}}</td>
             </tr>
             <tr>
                 <td>Proceso(24-35)</td>
-                <td>0</td>
-                <td>0 %</td>
+                <td>{{$firstIntentMetric['total'] >= 24 && $firstIntentMetric['total'] < 36? "Usted se encuentra en este nivel" : ""}}</td>
             </tr>
             <tr>
               <td>Inicio(12-23)</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$firstIntentMetric['total'] >= 12 && $firstIntentMetric['total'] < 24  ? "Usted se encuentra en este nivel" : ""}}</td>
             </tr>
             <tr>
               <td>Previo al inicio(0-11)</td>
-              <td>0</td>
-              <td>0 %</td>
-            </tr>
-            <tr>
-              <td>TOTAL</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$firstIntentMetric['total'] <= 12 ? "Usted se encuentra en este nivel" : ""}}</td>
             </tr>
             </tbody>
           </table>
-
-        <div id='grafico_03'></div>
         
       </div>
       <div class="modal-footer">
@@ -1037,20 +1056,20 @@
           <tr>
               <td>Función Locativa </td>
               <td>5</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$identityFunctionMetric["locativa"]}}</td>
+              <td>{{ $identityFunctionMetric["total"] == 0 ? 0 : $identityFunctionMetric["locativa"] / $identityFunctionMetric["total"]}}%</td>
           </tr>
           <tr>
               <td>Función Selectiva </td>
               <td>6</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$identityFunctionMetric["selectiva"]}}</td>
+              <td>{{ $identityFunctionMetric["total"] == 0 ? 0 : $identityFunctionMetric["selectiva"] / $identityFunctionMetric["total"]}}%</td>
           </tr>
           <tr>
               <td>Función Integrativa </td>
               <td>35</td>
-              <td>0</td>
-              <td>0 %</td>
+              <td>{{$identityFunctionMetric["integrativa"]}}</td>
+              <td>{{ $identityFunctionMetric["total"] == 0 ? 0 : $identityFunctionMetric["integrativa"] / $identityFunctionMetric["total"]}}%</td>
           </tr>
 
           </tbody>
@@ -1074,7 +1093,7 @@
 var data = [
   {
     x: ['Locativa', 'Selectiva', 'Función Integrativa'],
-    y: [0,0,0],
+    y: [{{$identityFunctionMetric["locativa"]}},{{$identityFunctionMetric["selectiva"]}},{{$identityFunctionMetric["integrativa"]}}],
     type: 'bar'
   }
 ];
@@ -1086,7 +1105,7 @@ Plotly.newPlot('grafico_01', data);
 var data = [
   {
     x: ['Correctas', 'Incorrectas'],
-    y: [0,0],
+    y: [{{$correctIncorrectMetric['totalCorrect']}},{{$correctIncorrectMetric['totalIncorrect']}}],
     type: 'bar'
   }
 ];
@@ -1106,51 +1125,24 @@ Plotly.newPlot('grafico_03', data);
 </script>
 
 <script>
-var trace1 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [0,0,0,0],
-  name: 'Dimensión de Valoración',
-  type: 'bar'
-};
 
-var trace2 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [0,0,0,0],
-  name: 'Dimensión de Interes',
-  type: 'bar'
-};
+var data = [
+  {
+    x: ['Valoracion','Interes', 'Percepción'],
+    y: [{{$storeMetric['valoracion']}},{{$storeMetric["interes"]}},{{$storeMetric["percepcion"]}}],    
+    type: 'bar'
+  }
+];
+Plotly.newPlot('grafico_5', data);
 
-var trace3 = {
-  x: ['Fundo del Fierro','Plaza de Armas', 'Hospital Goyeneche', 'Molino de Sabandia'],
-  y: [0,0,0,0],
-  name: 'Dimensión de percepciones',
-  type: 'bar'
-};
 
-var data = [trace1, trace2,trace3];
-
-var layout = {barmode: 'group'};
-
-Plotly.newPlot('grafico_5', data, layout);
+  
 </script>
 
 
 
 
-<script>
-var data = [{
-  values: [19, 26, 55,45,10],
-  labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas'],
-  type: 'pie'
-}];
 
-var layout = {
-  height: 400,
-  width: 900
-};
-
-Plotly.newPlot('grafico_6', data, layout);
-</script>
 
 
 
