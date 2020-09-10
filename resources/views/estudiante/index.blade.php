@@ -420,7 +420,7 @@
                   No se calificó
                 @elseif ($stars['hospital'] <= 2)
                   <img width="50" src ="/images/triste.png" />
-                @elseif (count($stars['plaza']) <= 4)
+                @elseif (($stars['plaza']) <= 4)
                   <img width="50" src ="/images/aburrido.png" />
                 @else
                   <img width="50" src ="/images/feliz.png" />
