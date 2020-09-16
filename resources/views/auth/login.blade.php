@@ -60,10 +60,7 @@
                     </button>
                   </div>
               </form>
-            </div>
-
-         
-          
+            </div>          
           <div class="registerbtn">
             <button class="btn btn-default btn-lg" onclick="javascript:location.href='../register'">Registrate</button>
           </div>
