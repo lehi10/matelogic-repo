@@ -34,6 +34,7 @@ return array(
     'App\\IndentityQuestions' => $baseDir . '/app/IndentityQuestions.php',
     'App\\Interest' => $baseDir . '/app/Interest.php',
     'App\\Item' => $baseDir . '/app/Item.php',
+    'App\\PostSurvey' => $baseDir . '/app/PostSurvey.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

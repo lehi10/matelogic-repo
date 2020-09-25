@@ -19,6 +19,7 @@ use App\Usability;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\PostSurvey;
 
 class RegisterController extends Controller
 {
@@ -154,6 +155,18 @@ class RegisterController extends Controller
                 $usabSurvey->user_id    = $id_user[0]['id'];
                 $usabSurvey->teacher_id = $data['code'];
                 $usabSurvey->save();
+
+                $questions = new IndentityQuestions;
+                $questions->user_id    = $id_user[0]['id'];
+                $questions->teacher_id = $data['code'];
+                $questions->save();
+
+                $postSurvey = new PostSurvey;
+                $postSurvey->user_id    = $id_user[0]['id'];
+                $postSurvey->teacher_id = $data['code'];
+                $postSurvey->save();
+
+                
 
                 
         }

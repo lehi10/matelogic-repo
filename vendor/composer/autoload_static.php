@@ -574,6 +574,7 @@ class ComposerStaticInit83c33463ce171bd5fa0f708b338b259e
         'App\\IndentityQuestions' => __DIR__ . '/../..' . '/app/IndentityQuestions.php',
         'App\\Interest' => __DIR__ . '/../..' . '/app/Interest.php',
         'App\\Item' => __DIR__ . '/../..' . '/app/Item.php',
+        'App\\PostSurvey' => __DIR__ . '/../..' . '/app/PostSurvey.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

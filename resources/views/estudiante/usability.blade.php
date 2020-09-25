@@ -17,6 +17,12 @@
     
 
     <h2>Encuesta de Usabilidad</h2><hr>
+            <p>TD: Totalmente desacuerdo</p>
+            <p>ED: En desacuerdo</p>
+            <p>NI: Ni de acuerdo ni en desacuerdo</p>
+            <p>DA: De sacuerdo</p>
+            <p>TA: Todalmente de acuerdo</p>
+
             <form action="/saveUsabilityForm" method="POST">       
             @csrf     
             <div class="row">
@@ -28,7 +34,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q1" value = 0 {{ $usability_data["q1"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q1" value = 0 {{ $usability_data["q1"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q1" value= 1 {{ $usability_data["q1"]== 1 ?  "checked" : "" }} >ED
@@ -56,7 +62,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q2" value = 0 {{ $usability_data["q2"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q2" value = 0 {{ $usability_data["q2"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q2" value= 1 {{ $usability_data["q2"]== 1 ?  "checked" : "" }} >ED
@@ -82,7 +88,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q3" value = 0 {{ $usability_data["q3"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q3" value = 0 {{ $usability_data["q3"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q3" value= 1 {{ $usability_data["q3"]== 1 ?  "checked" : "" }} >ED
@@ -109,7 +115,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q4" value = 0 {{ $usability_data["q4"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q4" value = 0 {{ $usability_data["q4"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q4" value= 1 {{ $usability_data["q4"]== 1 ?  "checked" : "" }} >ED
@@ -136,7 +142,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q5" value = 0 {{ $usability_data["q5"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q5" value = 0 {{ $usability_data["q5"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q5" value= 1 {{ $usability_data["q5"]== 1 ?  "checked" : "" }} >ED
@@ -164,7 +170,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q6" value = 0 {{ $usability_data["q6"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q6" value = 0 {{ $usability_data["q6"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q6" value= 1 {{ $usability_data["q6"]== 1 ?  "checked" : "" }} >ED
@@ -191,7 +197,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q7" value = 0 {{ $usability_data["q7"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q7" value = 0 {{ $usability_data["q7"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q7" value= 1 {{ $usability_data["q7"]== 1 ?  "checked" : "" }} >ED
@@ -218,7 +224,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q8" value = 0 {{ $usability_data["q8"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q8" value = 0 {{ $usability_data["q8"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q8" value= 1 {{ $usability_data["q8"]== 1 ?  "checked" : "" }} >ED
@@ -245,7 +251,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q9" value = 0 {{ $usability_data["q9"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q9" value = 0 {{ $usability_data["q9"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q9" value= 1 {{ $usability_data["q9"]== 1 ?  "checked" : "" }} >ED
@@ -272,7 +278,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q10" value = 0 {{ $usability_data["q10"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q10" value = 0 {{ $usability_data["q10"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q10" value= 1 {{ $usability_data["q10"]== 1 ?  "checked" : "" }} >ED
@@ -299,7 +305,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q11" value = 0 {{ $usability_data["q11"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q11" value = 0 {{ $usability_data["q11"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q11" value= 1 {{ $usability_data["q11"]== 1 ?  "checked" : "" }} >ED
@@ -327,7 +333,7 @@
 
                 <div class="col-sm-4" >
                    <label class="radio-inline">
-                        <input type="radio" name="q12" value = 0 {{ $usability_data["q12"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q12" value = 0 {{ $usability_data["q12"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q12" value= 1 {{ $usability_data["q12"]== 1 ?  "checked" : "" }} >ED
@@ -354,7 +360,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q13" value = 0 {{ $usability_data["q13"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q13" value = 0 {{ $usability_data["q13"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q13" value= 1 {{ $usability_data["q13"]== 1 ?  "checked" : "" }} >ED
@@ -381,7 +387,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q14" value = 0 {{ $usability_data["q14"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q14" value = 0 {{ $usability_data["q14"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q14" value= 1 {{ $usability_data["q14"]== 1 ?  "checked" : "" }} >ED
@@ -408,7 +414,7 @@
 
                 <div class="col-sm-4" >
                     <label class="radio-inline">
-                        <input type="radio" name="q15" value = 0 {{ $usability_data["q15"]== 0 ?  "checked" : "" }}>TA
+                        <input type="radio" name="q15" value = 0 {{ $usability_data["q15"]== 0 ?  "checked" : "" }}>TD
                     </label>&nbsp 
                     <label class="radio-inline">
                         <input type="radio" name="q15" value= 1 {{ $usability_data["q15"]== 1 ?  "checked" : "" }} >ED

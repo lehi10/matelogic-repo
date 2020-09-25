@@ -51,11 +51,12 @@ Route::group(['middleware'=>['web','auth']],function(){
     Route::get('/demoform', 'EstudianteController@demoform_show');
     Route::get('/identityform', 'EstudianteController@identityform_show');
     Route::get('/usabilityform', 'EstudianteController@usabilityform_show');
+    Route::get('/surveyPostform', 'EstudianteController@surveyPostform_show');
     
     Route::post('/saveDemoForm', 'EstudianteController@demoform_save');
     Route::post('/saveIdentityForm', 'EstudianteController@identityform_save');
     Route::post('/saveUsabilityForm', 'EstudianteController@usabilityform_save');
-
+    Route::post('/saveSurveyPostform', 'EstudianteController@surveyPostform_save');
 
     Route::get('/profesor', 'ProfesorController@show');
 

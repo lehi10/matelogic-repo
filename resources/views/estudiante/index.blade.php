@@ -114,8 +114,7 @@
 <h2>MI PERFIL</h2>
 <hr>
   <div class="row">
-    <div class="col-sm-3">
-    </div>
+    
     <div class="col-sm-3"> 
       <div class="well">
         <img src="../images/poblacion.png" width="150"/>
@@ -134,8 +133,26 @@
         <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEncuesta">Ver</button>
       </div>
     </div>
-    <div class="col-sm-3">
+    
+    <div class="col-sm-3"> 
+      <div class="well">
+        <img src="../images/tarea-completada.png" width="150"/>
+        <hr>
+        <h3>Encuesta Post Test</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" onclick="window.location.href='/surveyPostform'">Ver</button>
+
+      </div>
+      
     </div>
+    <div class="col-sm-3">
+      <div class="well">
+        <img src="../images/usabilidad.png" width="150"/>
+        <hr>
+        <h3>Encuesta de usabilidad</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" onclick="window.location.href='/usabilityform'">Ver</button>
+      </div>
+    </div>
+
   </div>
 </div><br>
 
