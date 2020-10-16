@@ -9,6 +9,7 @@ use  App\Valoration;
 use  App\Star;
 use  App\Coin;
 use  App\IndentityQuestions;
+use  App\PostSurvey;
 use App\Usability;
 use App\Item;
 use DB;
@@ -194,6 +195,30 @@ class ProfesorController extends Controller
       $total = count($datos);
       return Array("satisfactorio"=> $satisfactorio, "proceso"=>$proceso, "inicio"=>$inicio, "previoInicio"=>$previoInicio,"total"=>$total);
     }
+
+    public function postSurveyMetric(){
+      $datos = PostSurvey::where('teacher_id',Auth::user()->id)->get();
+      $nunca = 0;
+      $aveces = 0;
+      $siempre = 0;
+
+      foreach($datos as $row){
+        $fn = 0;
+        $fa = 0;
+        $fs = 0;
+
+        for($i =1; $i<=15 ;$i++){
+          if ($row["q$i"]== 0 )
+            $nunca ++;
+          else if($row["q$i"]== 1 )
+            $aveces++;
+          else if($row["q$i"]== 2 )
+            $siempre++;
+        }
+      }
+
+      return Array("nunca"=> $nunca, "aveces"=>$aveces, "siempre"=>$siempre);
+    }
     
     public function show()
     {
@@ -342,6 +367,8 @@ class ProfesorController extends Controller
         $firstIntent = $this->firstIntent();
         $usabilityMetric = $this->usabilityMetric();
 
+        $postSurvey = $this->postSurveyMetric();
+
         return view('profesor.index',[
             'counters'=>$counters, 
             'oneIntents'=>$oneIntents, 
@@ -354,7 +381,8 @@ class ProfesorController extends Controller
             'coins'=>$coins,
             'selectedItems'=>$selectedItems,
             'firstInten'=>$firstIntent,
-            'usabilityMetric'=>$usabilityMetric]
+            'usabilityMetric'=>$usabilityMetric,
+            'postSurvey'=> $postSurvey]
         );
     }
 

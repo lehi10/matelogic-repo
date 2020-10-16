@@ -107,9 +107,7 @@
 <h2>ENCUESTAS</h2>
 <hr>
   <div class="row">
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-4"> 
       <div class="well">
         <img src="../images/cliente.png" width="150"/>
         <hr>
@@ -117,9 +115,18 @@
         <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEncuestaIdentidad">Ver</button>
 
       </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="well">
+        <img src="../images/cliente.png" width="150"/>
+        <hr>
+        <h3>Encuesta de identidad Cultural (Post Test)</h3>
+        <button style="width: 100px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modalEncuestaIdentidadPostTest">Ver</button>
+
+      </div>
       
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <div class="well">
         <img src="../images/usabilidad.png" width="150"/>
         <hr>
@@ -781,6 +788,85 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div id="modalEncuestaIdentidadPostTest" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-ku">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Encuesta de identidad Cultural (Post Test)</h4>
+      </div>
+      <div class="modal-body">
+        
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+              <th></th>
+              <th>Frecuencia</th>
+              <th>Procentaje</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>Nunca</td>
+              <td>{{$postSurvey['nunca']}}</td>
+              @if ($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre'] != 0)
+              <td>{{ round((100*$postSurvey['nunca'])/($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre']),2)}}</td>
+              @else
+                  <td>0</td>
+              @endif
+          </tr>
+          <tr>
+              <td>Aveces</td>
+              <td>{{$postSurvey['aveces']}}</td>
+              @if ($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre'] != 0)
+              <td>{{ round((100*$postSurvey['aveces'])/($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre']),2)}}</td>
+              @else
+                  <td>0</td>
+              @endif
+          </tr>
+          <tr>
+              <td>Siempre</td>
+              <td>{{$postSurvey['siempre']}}</td>
+              @if ($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre'] != 0)
+              <td>{{ round((100*$postSurvey['siempre'])/($postSurvey['nunca'] + $postSurvey['aveces']+$postSurvey['siempre']),2)}}</td>
+              @else
+                  <td>0</td>
+              @endif
+          </tr>
+        </tbody>
+      </table>
+
+      <div id='grafico_0_1'></div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+var data = [{
+  values: [{{$postSurvey['nunca']}}, {{$postSurvey['aveces']}},{{$postSurvey['siempre']}}],
+  labels: ['Nunca', 'Aveces', 'Siempre'],
+  type: 'pie'
+}];
+
+var layout = {
+  height: 400,
+  width: 900
+};
+
+Plotly.newPlot('grafico_0_1', data, layout);
+</script>
 
 
 <script>

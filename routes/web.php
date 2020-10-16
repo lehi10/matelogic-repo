@@ -46,6 +46,7 @@ Route::group(['middleware'=>['web','auth']],function(){
         }
     });
 
+    
 
     Route::get('/estudiante', 'EstudianteController@show');
     Route::get('/demoform', 'EstudianteController@demoform_show');
